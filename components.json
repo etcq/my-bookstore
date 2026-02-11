@@ -14,7 +14,7 @@
   "rtl": false,
   "aliases": {
     "components": "@/shared/ui",
-    "utils": "@/shared/lib/shadcn",
+    "utils": "@/shared/lib/tailwind-merge",
     "ui": "@/shared/ui/kit",
     "lib": "@/shared/lib",
     "hooks": "@/shared/lib/hooks"
