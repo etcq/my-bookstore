@@ -1,11 +1,21 @@
+'use client';
+
 import React from 'react';
-import { ThemeSwitcher } from '@/features/theme-switcher';
+import { Logo } from './logo';
+import { HeaderNavigation } from '@/features/header-navigation';
+import Link from 'next/link';
+import { UserMenu } from './user-menu';
 
 export const Header = () => {
   return (
-    <div className="border-b-2">
-      This is the header component
-      <ThemeSwitcher />
+    <div className="border-b-2 bg-stone-500 dark:bg-stone-700">
+      <div className="flex items-center justify-between max-w-[1240px] px-4 mx-auto">
+        <Link href={'/'}>
+          <Logo />
+        </Link>
+        <HeaderNavigation />
+        <UserMenu />
+      </div>
     </div>
   );
 };

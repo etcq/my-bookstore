@@ -1,7 +1,8 @@
 <a id="readme-top"></a>
+
 <div align="center">
   <a href="#">
-    <img src="public/images/logo.svg" alt="Logo" width="80" height="80">
+    <img src="public/images/readme-logo.svg" alt="Logo" width="80" height="80">
   </a>
   <h1 align="center">Book Store</h1>
   <p align="center">
@@ -39,7 +40,8 @@
 Bookstore is a modern web application for browsing and purchasing books online.  
 The project is built with **Next.js** and focuses on performance, scalability, and clean architecture.
 
-The application demonstrates real-world e-commerce functionality such as product catalog browsing, filtering, authentication, and cart management.  
+The application demonstrates real-world e-commerce functionality such as product catalog browsing, filtering,
+authentication, and cart management.  
 It is designed as a **pet / portfolio project** showcasing modern frontend practices.
 
 ### Application structure
@@ -63,6 +65,7 @@ It is designed as a **pet / portfolio project** showcasing modern frontend pract
 ### Technologies Used
 
 ##### Main language
+
 <ul>
   <li>
     <a href="https://www.typescriptlang.org/">
@@ -73,6 +76,7 @@ It is designed as a **pet / portfolio project** showcasing modern frontend pract
 </ul>
 
 ##### Main frameworks and libraries
+
 <ul>
   <li>
     <a href="https://nextjs.org/">
@@ -101,6 +105,7 @@ It is designed as a **pet / portfolio project** showcasing modern frontend pract
 </ul>
 
 ##### Linters
+
 <ul>
   <li>
     <a href="https://eslint.org/">
@@ -117,6 +122,7 @@ It is designed as a **pet / portfolio project** showcasing modern frontend pract
 </ul>
 
 ##### Testing
+
 <ul>
   <li>
     <a href="https://vitest.dev/">
@@ -136,12 +142,12 @@ It is designed as a **pet / portfolio project** showcasing modern frontend pract
 
 - app — Next.js App Router (pages, layouts, routing)
 - src - project files
-    - app - providers, global styles and etc.
-    - pages - full pages or large parts of a page in nested routing
-    - widgets — large self-contained chunks of functionality or UI
-    - features — domain-specific logic (cart, books, auth)
-    - entities — core business entities (book, user, order)
-    - shared — shared UI, hooks, utilities, constants
+  - app - providers, global styles and etc.
+  - pages - full pages or large parts of a page in nested routing
+  - widgets — large self-contained chunks of functionality or UI
+  - features — domain-specific logic (cart, books, auth)
+  - entities — core business entities (book, user, order)
+  - shared — shared UI, hooks, utilities, constants
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -153,17 +159,24 @@ It is designed as a **pet / portfolio project** showcasing modern frontend pract
 
 2. Obtain the Project Files: you have two options for obtaining the project files:
 
-- Fork the Repository: If you plan to contribute to the project or make changes to the code, it's recommended to fork the repository. This will create a copy of the repository under your GitHub account. [Fork the repository](https://github.com/aQafresca/nextjs-app/fork) to create a copy under your account.
+- Fork the Repository: If you plan to contribute to the project or make changes to the code, it's recommended to fork
+  the repository. This will create a copy of the repository under your GitHub
+  account. [Fork the repository](https://github.com/aQafresca/nextjs-app/fork) to create a copy under your account.
 
-- Download the Repository: If you only intend to use the project locally and don't plan to contribute changes, you can simply download the repository as a ZIP file. [Download the repository](https://github.com/aQafresca/nextjs-app/archive/refs/heads/main.zip) as a ZIP file and extract it to your local machine.
+- Download the Repository: If you only intend to use the project locally and don't plan to contribute changes, you can
+  simply download the repository as a ZIP
+  file. [Download the repository](https://github.com/aQafresca/nextjs-app/archive/refs/heads/main.zip) as a ZIP file and
+  extract it to your local machine.
 
-3. Clone the Repository (if Forked): if you forked the repository, clone your newly created repo to your local machine using the following command:
+3. Clone the Repository (if Forked): if you forked the repository, clone your newly created repo to your local machine
+   using the following command:
 
 ```
 git clone https://github.com/YOUR-USERNAME/nextjs-app.git
 ```
 
-4. Navigate to the Project Directory: once you have obtained the project files (either by forking or downloading), navigate to the project directory:
+4. Navigate to the Project Directory: once you have obtained the project files (either by forking or downloading),
+   navigate to the project directory:
 
 ```
 cd nextjs-app
@@ -192,13 +205,14 @@ npm run build
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 Scripts in project
-1.	npm run dev — run development mode
-2.	npm run build — build the project
-3.	npm run start — start production server
-4.	npm run lint — lint the codebase
-5.	npm run format — format code with Prettier
-6.	npm run test — run tests
-7.	npm run coverage — generate test coverage
+
+1. npm run dev — run development mode
+2. npm run build — build the project
+3. npm run start — start production server
+4. npm run lint — lint the codebase
+5. npm run format — format code with Prettier
+6. npm run test — run tests
+7. npm run coverage — generate test coverage
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 ```
