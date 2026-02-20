@@ -1,6 +1,6 @@
-import {defineConfig, globalIgnores} from "eslint/config";
-import nextVitals from "eslint-config-next/core-web-vitals";
-import eslint from "@eslint/js";
+import { defineConfig, globalIgnores } from 'eslint/config';
+import nextVitals from 'eslint-config-next/core-web-vitals';
+import eslint from '@eslint/js';
 import tseslint from 'typescript-eslint';
 import prettier from 'eslint-plugin-prettier/recommended';
 
@@ -19,18 +19,19 @@ const eslintConfig = defineConfig([
       parserOptions: {
         projectService: true,
         tsconfigRootDir: import.meta.dirname,
-      }
+      },
     },
     rules: {
-      "@typescript-eslint/consistent-type-definitions": ['error', 'interface'],
+      '@typescript-eslint/consistent-type-definitions': ['error', 'interface'],
       '@typescript-eslint/consistent-type-imports': 'error',
-    }
+    },
   },
   globalIgnores([
-    ".next/**",
-    "out/**",
-    "build/**",
-    "next-env.d.ts",
+    '.next/**',
+    'out/**',
+    'build/**',
+    'next-env.d.ts',
+    '**/kit/*',
   ]),
 ]);
 
