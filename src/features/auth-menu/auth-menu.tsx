@@ -1,6 +1,3 @@
-'use client';
-
-import React from 'react';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -10,6 +7,7 @@ import {
 import { Button } from '@/shared/ui/kit/button';
 import { User } from 'lucide-react';
 import { UserMenuTrigger } from '@/shared/ui/user-menu-trigger';
+import Link from 'next/link';
 
 export function AuthMenu() {
   return (
@@ -23,8 +21,12 @@ export function AuthMenu() {
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
         <div className="flex items-center flex-col gap-2 p-2">
-          <Button>sign in</Button>
-          <Button>sign up</Button>
+          <Button asChild>
+            <Link href="/login">sign in</Link>
+          </Button>
+          <Button asChild>
+            <Link href="/registration">sign up</Link>
+          </Button>
         </div>
       </DropdownMenuContent>
     </DropdownMenu>
