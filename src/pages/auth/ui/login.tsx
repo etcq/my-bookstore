@@ -7,15 +7,26 @@ import { Button } from '@/shared/ui/kit/button';
 import { loginFields } from '../model/fields';
 import { loginSchema, type TLoginForm } from '../model/schema/login.schema';
 import Link from 'next/link';
+import { signIn } from '@/entities/session';
 
 export function LoginPage() {
-  const { control, handleSubmit } = useForm<TLoginForm>({
+  const { control, handleSubmit, reset } = useForm<TLoginForm>({
     resolver: zodResolver(loginSchema),
     defaultValues: {
       email: '',
       password: '',
     },
   });
+
+  const onSubmit = async (formData: TLoginForm) => {
+    try {
+      await signIn(formData);
+      console.log(formData, 'logged');
+    } catch (error) {
+      console.error(error);
+      reset();
+    }
+  };
 
   return (
     <div className="w-[400px] mx-auto text-center mt-20">
@@ -25,7 +36,7 @@ export function LoginPage() {
       </span>
 
       <form
-        onSubmit={() => handleSubmit}
+        onSubmit={void handleSubmit(onSubmit)}
         className="flex flex-col gap-5 max-w-sm mx-auto"
       >
         {loginFields.map((field) => (

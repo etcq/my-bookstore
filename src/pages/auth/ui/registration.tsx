@@ -10,9 +10,10 @@ import {
   type TRegistrationForm,
 } from '../model/schema/registration.schema';
 import Link from 'next/link';
+import { signUp } from '@/entities/session';
 
 export function RegistrationPage() {
-  const { handleSubmit, control } = useForm<TRegistrationForm>({
+  const { handleSubmit, control, reset } = useForm<TRegistrationForm>({
     resolver: zodResolver(registrationSchema),
     defaultValues: {
       username: '',
@@ -25,22 +26,21 @@ export function RegistrationPage() {
     },
   });
 
-  // const onSubmit = async (formData: TRegistrationForm) => {
-  //   try {
-  //     await signUp(formData);
-  //     navigate('/');
-  //   } catch (error) {
-  //     console.error(error);
-  //     reset();
-  //   }
-  // };
+  const onSubmit = async (formData: TRegistrationForm) => {
+    try {
+      await signUp(formData);
+    } catch (error) {
+      console.error(error);
+      reset();
+    }
+  };
 
   return (
     <div className="w-[500px] mx-auto text-center mt-10">
       <h2 className="text-center text-2xl">Sign up</h2>
       <span className="block mt-5 mb-2">Create a new account</span>
       <form
-        onSubmit={() => handleSubmit}
+        onSubmit={void handleSubmit(onSubmit)}
         className="flex flex-wrap gap-5 max-w-[600px] mx-auto mt-10 justify-center"
       >
         {registrationFields.map((field) => (

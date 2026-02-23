@@ -1,0 +1,29 @@
+'use server';
+import { dataBaseColsName } from '../model/constants';
+import { createSupabaseServerClient } from '@/shared/lib/supabase/server-client';
+import { formatDate } from '@/shared/lib/format/format-date';
+import type { TRegistrationForm } from '@/pages/auth/model/schema/registration.schema';
+
+export const signUp = async (formData: TRegistrationForm) => {
+  const client = await createSupabaseServerClient();
+  const { data, error } = await client.auth.signUp({
+    email: formData.email,
+    password: formData.password,
+    options: {
+      data: {
+        [dataBaseColsName.USERNAME]: formData.username,
+        [dataBaseColsName.EMAIL]: formData.email,
+        [dataBaseColsName.FIRST_NAME]: formData.firstName,
+        [dataBaseColsName.LAST_NAME]: formData.lastName,
+        [dataBaseColsName.DATE_OF_BIRTH]: formatDate(formData.dateOfBirth),
+        [dataBaseColsName.GENDER]: formData.gender,
+        [dataBaseColsName.AVATAR]: formData.avatarUrl,
+      },
+    },
+  });
+  if (error) {
+    throw error;
+  }
+
+  return { data };
+};
