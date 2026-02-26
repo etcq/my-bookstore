@@ -40,7 +40,8 @@ export function RegistrationPage() {
       <h2 className="text-center text-2xl">Sign up</h2>
       <span className="block mt-5 mb-2">Create a new account</span>
       <form
-        onSubmit={void handleSubmit(onSubmit)}
+        // eslint-disable-next-line @typescript-eslint/no-misused-promises
+        onSubmit={handleSubmit(onSubmit)}
         className="flex flex-wrap gap-5 max-w-[600px] mx-auto mt-10 justify-center"
       >
         {registrationFields.map((field) => (

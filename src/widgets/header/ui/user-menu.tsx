@@ -1,4 +1,3 @@
-import React from 'react';
 import { AuthMenu } from '@/features/auth-menu';
 import { Heart, ShoppingCart } from 'lucide-react';
 import { UserMenuLink } from '@/shared/ui/user-menu-link';

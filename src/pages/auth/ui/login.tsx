@@ -8,8 +8,10 @@ import { loginFields } from '../model/fields';
 import { loginSchema, type TLoginForm } from '../model/schema/login.schema';
 import Link from 'next/link';
 import { signIn } from '@/entities/session';
+import { useRouter } from 'next/navigation';
 
 export function LoginPage() {
+  const router = useRouter();
   const { control, handleSubmit, reset } = useForm<TLoginForm>({
     resolver: zodResolver(loginSchema),
     defaultValues: {
@@ -22,6 +24,7 @@ export function LoginPage() {
     try {
       await signIn(formData);
       console.log(formData, 'logged');
+      router.push('/');
     } catch (error) {
       console.error(error);
       reset();
@@ -36,7 +39,8 @@ export function LoginPage() {
       </span>
 
       <form
-        onSubmit={void handleSubmit(onSubmit)}
+        // eslint-disable-next-line @typescript-eslint/no-misused-promises
+        onSubmit={handleSubmit(onSubmit)}
         className="flex flex-col gap-5 max-w-sm mx-auto"
       >
         {loginFields.map((field) => (
