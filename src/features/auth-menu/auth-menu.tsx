@@ -10,6 +10,7 @@ import { UserMenuTrigger } from '@/shared/ui/user-menu-trigger';
 import Link from 'next/link';
 import { signOut } from '@/entities/session/api/sign-out';
 import { useSession } from '@/app/session-provider';
+import { ROUTES } from '@/shared/routes';
 
 export function AuthMenu() {
   const user = useSession();
@@ -20,17 +21,19 @@ export function AuthMenu() {
       </UserMenuTrigger>
       <DropdownMenuContent className="w-40">
         <DropdownMenuLabel className="text-center">
-          {user?.email ? `Hello ${user.email}` : 'Please sign in or sign up!'}
+          {!user?.user_metadata.username
+            ? 'Please sign in or sign up!'
+            : `Hello ${user.user_metadata.username as string}`}
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
         <div className="flex items-center flex-col gap-2 p-2">
           {!user ? (
             <>
               <Button asChild>
-                <Link href="/login">sign in</Link>
+                <Link href={ROUTES.LOGIN}>sign in</Link>
               </Button>
               <Button asChild>
-                <Link href="/registration">sign up</Link>
+                <Link href={ROUTES.REGISTRATION}>sign up</Link>
               </Button>
             </>
           ) : (

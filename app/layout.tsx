@@ -6,7 +6,7 @@ import { Header } from '@/widgets/header';
 import { ThemeProvider } from '@/app';
 import { TooltipProvider } from '@/shared/ui/kit/tooltip';
 import { SessionProvider } from '@/app/session-provider';
-import { getSessionUser } from '@/entities/session/api/get-session';
+import { getSessionUser } from '@/entities/session/api/get-session-user';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -29,7 +29,6 @@ export default async function RootLayout({
   children: ReactNode;
 }>) {
   const user = await getSessionUser();
-  console.log('user', user);
   return (
     <html lang="en" suppressHydrationWarning>
       <body

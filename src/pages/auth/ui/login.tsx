@@ -23,7 +23,6 @@ export function LoginPage() {
   const onSubmit = async (formData: TLoginForm) => {
     try {
       await signIn(formData);
-      console.log(formData, 'logged');
       router.push('/');
     } catch (error) {
       console.error(error);

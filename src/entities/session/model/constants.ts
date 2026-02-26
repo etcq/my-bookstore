@@ -5,5 +5,4 @@ export const dataBaseColsName = {
   LAST_NAME: 'last_name',
   DATE_OF_BIRTH: 'date_of_birth',
   GENDER: 'gender',
-  AVATAR: 'avatar_url',
 } as const;

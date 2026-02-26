@@ -33,7 +33,6 @@ export const baseRegistrationSchema = z.object({
   gender: z.enum(['male', 'female'], {
     message: ValidationMessages.GENDER,
   }),
-  avatarUrl: z.string(),
   dateOfBirth: birthDateSchema.optional(),
 });
 

@@ -11,8 +11,10 @@ import {
 } from '../model/schema/registration.schema';
 import Link from 'next/link';
 import { signUp } from '@/entities/session';
+import { useRouter } from 'next/navigation';
 
 export function RegistrationPage() {
+  const router = useRouter();
   const { handleSubmit, control, reset } = useForm<TRegistrationForm>({
     resolver: zodResolver(registrationSchema),
     defaultValues: {
@@ -22,13 +24,13 @@ export function RegistrationPage() {
       lastName: '',
       password: '',
       confirmed: '',
-      avatarUrl: '',
     },
   });
 
   const onSubmit = async (formData: TRegistrationForm) => {
     try {
       await signUp(formData);
+      router.push('/');
     } catch (error) {
       console.error(error);
       reset();

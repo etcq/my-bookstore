@@ -17,7 +17,6 @@ export const signUp = async (formData: TRegistrationForm) => {
         [dataBaseColsName.LAST_NAME]: formData.lastName,
         [dataBaseColsName.DATE_OF_BIRTH]: formatDate(formData.dateOfBirth),
         [dataBaseColsName.GENDER]: formData.gender,
-        [dataBaseColsName.AVATAR]: formData.avatarUrl,
       },
     },
   });
