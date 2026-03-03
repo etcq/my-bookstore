@@ -4,14 +4,15 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { DateSelect, FormControlledInput, GenderSelect } from '@/shared/ui';
 import { Button } from '@/shared/ui/kit/button';
-import { passwordFields, registrationFields } from '../model/fields';
+import { mainInformationFields, passwordFields } from '../model/fields';
 import {
   registrationSchema,
   type TRegistrationForm,
 } from '../model/schema/registration.schema';
 import Link from 'next/link';
-import { signUp } from '@/entities/session';
+import { signUp } from '@/entities/user';
 import { useRouter } from 'next/navigation';
+import { getUsernames } from '../model/get-usernames';
 
 export function RegistrationPage() {
   const router = useRouter();
@@ -24,13 +25,15 @@ export function RegistrationPage() {
       lastName: '',
       password: '',
       confirmed: '',
+      gender: 'male',
     },
   });
 
   const onSubmit = async (formData: TRegistrationForm) => {
     try {
+      await getUsernames(formData.username);
       await signUp(formData);
-      router.push('/');
+      router.push('/auth/success');
     } catch (error) {
       console.error(error);
       reset();
@@ -46,7 +49,7 @@ export function RegistrationPage() {
         onSubmit={handleSubmit(onSubmit)}
         className="flex flex-wrap gap-5 max-w-[600px] mx-auto mt-10 justify-center"
       >
-        {registrationFields.map((field) => (
+        {mainInformationFields.map((field) => (
           <FormControlledInput<TRegistrationForm>
             key={field.name}
             name={field.name}

@@ -1,5 +1,6 @@
 import type { TLoginForm } from './schema/login.schema';
 import type { TRegistrationForm } from './schema/registration.schema';
+import type { TUserInformationForm } from './schema/user-information.schema';
 
 interface ILoginField {
   name: keyof TLoginForm;
@@ -13,8 +14,8 @@ interface IPasswordField {
   type: 'password';
 }
 
-interface IRegistrationFields {
-  name: keyof TRegistrationForm;
+interface IMainInformationField {
+  name: keyof TUserInformationForm;
   label: string;
   type?: string;
 }
@@ -29,7 +30,7 @@ export const passwordFields: IPasswordField[] = [
   { name: 'confirmed', label: 'Confirm password', type: 'password' },
 ];
 
-export const registrationFields: IRegistrationFields[] = [
+export const mainInformationFields: IMainInformationField[] = [
   { name: 'username', label: 'Username' },
   { name: 'email', label: 'Email', type: 'email' },
   { name: 'firstName', label: 'Name' },

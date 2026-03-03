@@ -7,7 +7,7 @@ import { Button } from '@/shared/ui/kit/button';
 import { loginFields } from '../model/fields';
 import { loginSchema, type TLoginForm } from '../model/schema/login.schema';
 import Link from 'next/link';
-import { signIn } from '@/entities/session';
+import { signIn } from '@/entities/user';
 import { useRouter } from 'next/navigation';
 
 export function LoginPage() {

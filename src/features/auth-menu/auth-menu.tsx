@@ -8,7 +8,7 @@ import { Button } from '@/shared/ui/kit/button';
 import { User } from 'lucide-react';
 import { UserMenuTrigger } from '@/shared/ui/user-menu-trigger';
 import Link from 'next/link';
-import { signOut } from '@/entities/session/api/sign-out';
+import { signOut } from '@/entities/user/api/sign-out';
 import { useSession } from '@/app/session-provider';
 import { ROUTES } from '@/shared/routes';
 
@@ -37,7 +37,12 @@ export function AuthMenu() {
               </Button>
             </>
           ) : (
-            <Button onClick={() => void signOut()}>Log out</Button>
+            <>
+              <Button asChild>
+                <Link href={ROUTES.PROFILE}>Profile</Link>
+              </Button>
+              <Button onClick={() => void signOut()}>Log out</Button>
+            </>
           )}
         </div>
       </DropdownMenuContent>

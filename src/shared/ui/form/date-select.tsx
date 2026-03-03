@@ -15,11 +15,15 @@ import { FieldError } from '../kit/field';
 export interface IDateSelectProps<T extends FieldValues> {
   name: FieldPath<T>;
   control: Control<T>;
+  className?: string;
+  disabled?: boolean;
 }
 
 export function DateSelect<T extends FieldValues>({
   name,
   control,
+  className,
+  disabled,
 }: IDateSelectProps<T>) {
   const [open, setOpen] = useState(false);
 
@@ -28,19 +32,22 @@ export function DateSelect<T extends FieldValues>({
       control={control}
       name={name}
       render={({ field, fieldState }) => (
-        <div className="w-[48%]">
+        <div className={className ?? 'w-[48%]'}>
           <div className="flex flex-col gap-3">
             <Label htmlFor="date">Date of birth</Label>
-            <Popover open={open} onOpenChange={setOpen}>
+            <Popover
+              open={disabled ? false : open}
+              onOpenChange={disabled ? undefined : setOpen}
+            >
               <PopoverTrigger asChild>
                 <Button
+                  type="button"
                   variant="outline"
                   id="date"
                   className="justify-between font-normal"
+                  disabled={disabled}
                 >
-                  {field.value
-                    ? (field.value as Date).toLocaleDateString()
-                    : 'Select date'}
+                  {field.value ?? 'Select date'}
                   <ChevronDownIcon />
                 </Button>
               </PopoverTrigger>
@@ -53,7 +60,7 @@ export function DateSelect<T extends FieldValues>({
                   selected={field.value}
                   captionLayout="dropdown"
                   onSelect={(date) => {
-                    field.onChange(date);
+                    field.onChange(date?.toISOString().split('T')[0]);
                     setOpen(false);
                   }}
                 />

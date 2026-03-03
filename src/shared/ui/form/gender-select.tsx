@@ -5,16 +5,23 @@ import { Label } from '../kit/label';
 import { RadioGroup, RadioGroupItem } from '../kit/radio-group';
 import type { IControlledFieldProps } from './types';
 
+type TGenderSelectProps<T extends FieldValues> = IControlledFieldProps<T> & {
+  className?: string;
+  disabled?: boolean;
+};
+
 export function GenderSelect<T extends FieldValues>({
   name,
   control,
-}: IControlledFieldProps<T>) {
+  className,
+  disabled,
+}: TGenderSelectProps<T>) {
   return (
     <Controller
       name={name}
       control={control}
       render={({ field, fieldState }) => (
-        <FieldSet className="w-[48%]">
+        <FieldSet className={className ?? 'w-[48%]'}>
           <FieldLegend>Gender</FieldLegend>
           <RadioGroup
             name={field.name}
@@ -29,6 +36,7 @@ export function GenderSelect<T extends FieldValues>({
                   value={gender}
                   id={`form-rhf-radiogroup-${gender}`}
                   aria-invalid={fieldState.invalid}
+                  disabled={disabled}
                 />
                 <Label
                   htmlFor={`form-rhf-radiogroup-${gender}`}

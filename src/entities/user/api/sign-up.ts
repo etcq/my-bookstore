@@ -1,7 +1,6 @@
 'use server';
 import { dataBaseColsName } from '../model/constants';
 import { createSupabaseServerClient } from '@/shared/lib/supabase/server-client';
-import { formatDate } from '@/shared/lib/format/format-date';
 import type { TRegistrationForm } from '@/pages/auth/model/schema/registration.schema';
 
 export const signUp = async (formData: TRegistrationForm) => {
@@ -15,7 +14,7 @@ export const signUp = async (formData: TRegistrationForm) => {
         [dataBaseColsName.EMAIL]: formData.email,
         [dataBaseColsName.FIRST_NAME]: formData.firstName,
         [dataBaseColsName.LAST_NAME]: formData.lastName,
-        [dataBaseColsName.DATE_OF_BIRTH]: formatDate(formData.dateOfBirth),
+        [dataBaseColsName.DATE_OF_BIRTH]: formData.dateOfBirth,
         [dataBaseColsName.GENDER]: formData.gender,
       },
     },

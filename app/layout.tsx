@@ -6,7 +6,7 @@ import { Header } from '@/widgets/header';
 import { ThemeProvider } from '@/app';
 import { TooltipProvider } from '@/shared/ui/kit/tooltip';
 import { SessionProvider } from '@/app/session-provider';
-import { getSessionUser } from '@/entities/session/api/get-session-user';
+import { getSessionUser } from '@/entities/user/api/get-session-user';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
