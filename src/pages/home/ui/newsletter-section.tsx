@@ -18,18 +18,18 @@ export const NewsletterSection = () => {
   };
 
   return (
-    <section className="py-16 px-4">
+    <section className="py-16 px-4 bg-background">
       <div className="max-w-xl mx-auto text-center">
         <span className="text-5xl">✉️</span>
-        <h2 className="text-4xl font-semibold mt-4 mb-3 text-amber-300">
+        <h2 className="text-4xl font-semibold mt-4 mb-3 text-primary">
           Stay in the loop
         </h2>
-        <p className="dark:text-stone-300 text-stone-500 mb-8 text-sm">
+        <p className="text-muted-foreground mb-8 text-sm">
           Subscribe to our newsletter and be the first to know about new
           arrivals, exclusive deals, and author events.
         </p>
         {submitted ? (
-          <div className="text-green-500 text-lg py-4">
+          <div className="text-primary text-lg py-4">
             🎉 Thank you for subscribing!
           </div>
         ) : (
@@ -43,11 +43,11 @@ export const NewsletterSection = () => {
               onChange={handleChange}
               placeholder="Enter your email..."
               required
-              className="flex-1 h-11 rounded-lg pl-2 border dark:border-stone-600 border-stone-300 dark:bg-stone-800 bg-white focus:outline-none focus:ring-2 focus:ring-amber-300 text-sm"
+              className="flex-1 h-11 rounded-lg pl-2 border border-input bg-background focus:outline-none focus:ring-2 focus:ring-ring text-sm"
             />
             <Button
               type="submit"
-              className="h-11 bg-amber-300 hover:bg-amber-400 text-stone-900 font-semibold transition-colors cursor-pointer text-sm"
+              className="h-11 px-6 font-semibold cursor-pointer text-sm"
             >
               Subscribe
             </Button>

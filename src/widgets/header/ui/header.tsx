@@ -8,7 +8,7 @@ import { UserMenu } from './user-menu';
 
 export const Header = () => {
   return (
-    <div className="border-b-2 bg-stone-500 dark:bg-stone-700">
+    <header className="border-b bg-background dark:bg-background backdrop-blur h-[13vh] w-full">
       <div className="flex items-center justify-between max-w-[1240px] px-4 mx-auto">
         <Link href={'/'}>
           <Logo />
@@ -16,6 +16,6 @@ export const Header = () => {
         <HeaderNavigation />
         <UserMenu />
       </div>
-    </div>
+    </header>
   );
 };

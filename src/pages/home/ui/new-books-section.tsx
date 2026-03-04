@@ -11,8 +11,10 @@ import { BookCard } from '@/entities/book';
 
 export const NewBooks = () => {
   return (
-    <section className="h-125">
-      <p className="text-4xl text-center text-amber-300 mb-6">New books</p>
+    <section className="py-14 bg-background">
+      <p className="text-4xl text-center text-primary mb-8 font-semibold">
+        New books
+      </p>
       <Carousel
         className="w-[70%] mx-auto"
         opts={{

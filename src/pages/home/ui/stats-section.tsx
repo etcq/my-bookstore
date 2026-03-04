@@ -25,7 +25,7 @@ export const StatsSection = () => {
       />
       <div className="max-w-310 mx-auto px-8 py-24 z-10 relative">
         <h1
-          className={`text-[88px] leading-none text-white ${meieScript.className}`}
+          className={`text-[88px] leading-none text-white ${meieScript.className} uppercase`}
         >
           Page <span className="text-amber-300">&</span> co
         </h1>
@@ -48,8 +48,8 @@ export const StatsSection = () => {
           <Link href={ROUTES.CATALOG}>
             <Button
               variant="outline"
-              className="h-13 px-8 text-base font-semibold border-stone-500 text-stone-200
-                  hover:bg-stone-700 hover:text-white rounded-xl transition-all duration-200
+              className="h-13 px-8 text-base font-semibold border-stone-500 text-stone-900 dark:text-stone-200
+                  hover:bg-stone-700 hover:text-white dark:hover:bg-stone-200 dark:hover:text-stone-900 rounded-xl transition-all duration-200
                   hover:cursor-pointer"
             >
               New releases →

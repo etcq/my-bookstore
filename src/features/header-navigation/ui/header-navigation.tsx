@@ -14,7 +14,7 @@ export function HeaderNavigation() {
           {menuItems.map((item) => (
             <NavigationMenuItem
               key={item.name}
-              className="p-2 rounded-sm hover:bg-stone-700 dark:hover:bg-stone-500 hover:text-amber-100"
+              className="p-2 rounded-sm text-sm font-medium text-muted-foreground hover:text-accent-foreground hover:bg-accent transition-colors"
             >
               <Link href={item.href}>{item.name}</Link>
             </NavigationMenuItem>
