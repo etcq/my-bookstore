@@ -7,7 +7,7 @@ import { StatsSection } from './stats-section';
 
 export const HomePage = () => {
   return (
-    <div className="mx-auto">
+    <div>
       <StatsSection />
       <PromoSlider />
       <NewBooks />

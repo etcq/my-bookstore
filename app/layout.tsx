@@ -32,7 +32,7 @@ export default async function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}
       >
         <ThemeProvider
           attribute="class"
@@ -43,7 +43,7 @@ export default async function RootLayout({
           <SessionProvider user={user}>
             <TooltipProvider>
               <Header />
-              {children}
+              <main className="h-[87vh]">{children}</main>
             </TooltipProvider>
           </SessionProvider>
         </ThemeProvider>
