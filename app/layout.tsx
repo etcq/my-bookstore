@@ -5,6 +5,8 @@ import type { ReactNode } from 'react';
 import { Header } from '@/widgets/header';
 import { ThemeProvider } from '@/app';
 import { TooltipProvider } from '@/shared/ui/kit/tooltip';
+import { SessionProvider } from '@/app/session-provider';
+import { getSessionUser } from '@/entities/user/api/get-session-user';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -21,11 +23,12 @@ export const metadata: Metadata = {
   description: 'Buy a book and hire me',
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: ReactNode;
 }>) {
+  const user = await getSessionUser();
   return (
     <html lang="en" suppressHydrationWarning>
       <body
@@ -37,10 +40,12 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <TooltipProvider>
-            <Header />
-            {children}
-          </TooltipProvider>
+          <SessionProvider user={user}>
+            <TooltipProvider>
+              <Header />
+              {children}
+            </TooltipProvider>
+          </SessionProvider>
         </ThemeProvider>
       </body>
     </html>
