@@ -8,6 +8,7 @@ export type TFormControlledInputProps<T extends FieldValues> =
   IControlledFieldProps<T> & {
     label: string;
     type?: string;
+    step?: number;
     className?: string;
     disabled?: boolean;
   };
@@ -16,7 +17,8 @@ export function FormControlledInput<T extends FieldValues>({
   name,
   control,
   label,
-  type,
+  type = 'text',
+  step = 1,
   className,
   disabled,
 }: TFormControlledInputProps<T>) {
@@ -27,7 +29,20 @@ export function FormControlledInput<T extends FieldValues>({
       render={({ field, fieldState }) => (
         <Field className={className}>
           <FieldLabel>{label}</FieldLabel>
-          <Input {...field} type={type ?? 'text'} disabled={disabled} />
+          <Input
+            {...field}
+            type={type}
+            value={field.value ?? ''}
+            step={step}
+            onChange={(event) => {
+              field.onChange(
+                type === 'number'
+                  ? Number(event.target.value)
+                  : event.target.value,
+              );
+            }}
+            disabled={disabled}
+          />
           {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
         </Field>
       )}

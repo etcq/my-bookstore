@@ -12,7 +12,6 @@ export const ValidationMessages = {
   WHITESPACE: 'Field must not contain spaces.',
   SPECIAL_CHAR:
     'Field must contain only letters (no special characters or numbers)',
-  ZIP_INVALID: 'Invalid postal code',
   DATE_FUTURE: 'Date cannot be in the future',
   DATE_AGE: 'You must be at least 18 years old',
   GENDER: 'Please select a gender',
