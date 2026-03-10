@@ -2,13 +2,14 @@
 import { useState } from 'react';
 import { Button } from '@/shared/ui/kit/button';
 import { useForm } from 'react-hook-form';
-import { mainInformationFields } from '@/pages/auth/model/fields';
-import { DateSelect, FormControlledInput, GenderSelect } from '@/shared/ui';
-import type { TUserInformationForm } from '@/pages/auth/model/schema/user-information.schema';
+import { mainInformationFields } from '@/features/auth';
+import { DateSelect, FormControlledInput } from '@/shared/ui';
+import { GenderSelect } from '@/features/auth';
+import type { TUserInformationForm } from '@/features/auth';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { userInformationSchema } from '../model/schema/user-information.schema';
+import { userInformationSchema } from '@/features/auth';
 import type { TUserData } from '@/entities/user/model/types';
-import { updateUser } from '@/entities/user/api/update-user';
+import { updateUser } from '@/features/auth';
 
 export const ProfilePage = ({ userData }: { userData: TUserData }) => {
   const [isEditing, setIsEditing] = useState(false);

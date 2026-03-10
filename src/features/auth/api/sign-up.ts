@@ -1,7 +1,7 @@
 'use server';
-import { dataBaseColsName } from '../model/constants';
+import { dataBaseColsName } from '@/entities/user/model/constants';
 import { createSupabaseServerClient } from '@/shared/lib/supabase/server-client';
-import type { TRegistrationForm } from '@/pages/auth/model/schema/registration.schema';
+import type { TRegistrationForm } from '@/features/auth';
 
 export const signUp = async (formData: TRegistrationForm) => {
   const client = await createSupabaseServerClient();

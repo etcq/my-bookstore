@@ -1,7 +1,7 @@
 import * as z from 'zod';
 import { ValidationMessages } from '../validation-messages';
-import { passwordSchema } from '@/pages/auth/model/schema/password.schema';
-import { userInformationSchema } from './user-information.schema';
+import { passwordSchema } from './password.schema';
+import { userInformationSchema } from '@/features/auth';
 
 export type TRegistrationForm = z.infer<typeof registrationSchema>;
 

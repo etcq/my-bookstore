@@ -1,9 +1,9 @@
 import type { FieldValues } from 'react-hook-form';
 import { Controller } from 'react-hook-form';
-import { FieldError, FieldLegend, FieldSet } from '../kit/field';
-import { Label } from '../kit/label';
-import { RadioGroup, RadioGroupItem } from '../kit/radio-group';
-import type { IControlledFieldProps } from './types';
+import { FieldError, FieldLegend, FieldSet } from '@/shared/ui/kit/field';
+import { Label } from '@/shared/ui/kit/label';
+import { RadioGroup, RadioGroupItem } from '@/shared/ui/kit/radio-group';
+import type { IControlledFieldProps } from '@/shared/ui/form/types';
 
 type TGenderSelectProps<T extends FieldValues> = IControlledFieldProps<T> & {
   className?: string;

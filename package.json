@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "supabase:types": "npx supabase gen types typescript --linked --schema public > src/shared/lib/supabase/types.ts",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",

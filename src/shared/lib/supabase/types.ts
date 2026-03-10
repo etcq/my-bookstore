@@ -12,66 +12,44 @@ export type Database = {
   __InternalSupabase: {
     PostgrestVersion: '14.1';
   };
-  graphql_public: {
-    Tables: {
-      [_ in never]: never;
-    };
-    Views: {
-      [_ in never]: never;
-    };
-    Functions: {
-      graphql: {
-        Args: {
-          extensions?: Json;
-          operationName?: string;
-          query?: string;
-          variables?: Json;
-        };
-        Returns: Json;
-      };
-    };
-    Enums: {
-      [_ in never]: never;
-    };
-    CompositeTypes: {
-      [_ in never]: never;
-    };
-  };
   public: {
     Tables: {
       books: {
         Row: {
           author: string | null;
+          cover_url: string | null;
           created_at: string;
           description: string | null;
           genre: string | null;
           id: string;
-          name: string | null;
           page_count: number | null;
           price: number | null;
           rating: number | null;
+          title: string | null;
         };
         Insert: {
           author?: string | null;
+          cover_url?: string | null;
           created_at?: string;
           description?: string | null;
           genre?: string | null;
           id?: string;
-          name?: string | null;
           page_count?: number | null;
           price?: number | null;
           rating?: number | null;
+          title?: string | null;
         };
         Update: {
           author?: string | null;
+          cover_url?: string | null;
           created_at?: string;
           description?: string | null;
           genre?: string | null;
           id?: string;
-          name?: string | null;
           page_count?: number | null;
           price?: number | null;
           rating?: number | null;
+          title?: string | null;
         };
         Relationships: [];
       };
@@ -245,9 +223,6 @@ export type CompositeTypes<
     : never;
 
 export const Constants = {
-  graphql_public: {
-    Enums: {},
-  },
   public: {
     Enums: {},
   },

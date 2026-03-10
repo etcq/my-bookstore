@@ -4,10 +4,9 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { FormControlledInput } from '@/shared/ui';
 import { Button } from '@/shared/ui/kit/button';
-import { loginFields } from '../model/fields';
-import { loginSchema, type TLoginForm } from '../model/schema/login.schema';
+import { loginFields, loginSchema, type TLoginForm } from '@/features/auth';
 import Link from 'next/link';
-import { signIn } from '@/entities/user';
+import { signIn } from '@/features/auth';
 import { useRouter } from 'next/navigation';
 
 export function LoginPage() {

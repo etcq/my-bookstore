@@ -1,3 +1,3 @@
-import type { Database } from '@/shared/lib/supabase/types';
+import type { Tables } from '@/shared/lib/supabase/types';
 
-export type TUserData = Database['public']['Tables']['profiles']['Row'];
+export type TUserData = Tables<'profiles'>;

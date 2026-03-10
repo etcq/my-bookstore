@@ -43,7 +43,7 @@ export default async function RootLayout({
           <SessionProvider user={user}>
             <TooltipProvider>
               <Header />
-              <main className="h-[87vh]">{children}</main>
+              <main className="h-[calc(100vh-80px)]">{children}</main>
             </TooltipProvider>
           </SessionProvider>
         </ThemeProvider>

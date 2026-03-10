@@ -2,17 +2,15 @@
 
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
-import { DateSelect, FormControlledInput, GenderSelect } from '@/shared/ui';
+import { DateSelect, FormControlledInput } from '@/shared/ui';
+import { GenderSelect } from '@/features/auth';
 import { Button } from '@/shared/ui/kit/button';
-import { mainInformationFields, passwordFields } from '../model/fields';
-import {
-  registrationSchema,
-  type TRegistrationForm,
-} from '../model/schema/registration.schema';
+import { mainInformationFields, passwordFields } from '@/features/auth';
+import { registrationSchema, type TRegistrationForm } from '@/features/auth';
 import Link from 'next/link';
-import { signUp } from '@/entities/user';
+import { signUp } from '@/features/auth';
 import { useRouter } from 'next/navigation';
-import { getUsernames } from '../model/get-usernames';
+import { getUsernames } from '@/features/auth';
 
 export function RegistrationPage() {
   const router = useRouter();

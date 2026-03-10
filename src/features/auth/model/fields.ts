@@ -1,6 +1,6 @@
-import type { TLoginForm } from './schema/login.schema';
-import type { TRegistrationForm } from './schema/registration.schema';
-import type { TUserInformationForm } from './schema/user-information.schema';
+import type { TLoginForm } from '@/features/auth';
+import type { TRegistrationForm } from '@/features/auth';
+import type { TUserInformationForm } from '@/features/auth';
 
 interface ILoginField {
   name: keyof TLoginForm;

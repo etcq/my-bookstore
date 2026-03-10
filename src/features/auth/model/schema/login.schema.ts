@@ -1,6 +1,6 @@
 import * as z from 'zod';
 import { ValidationMessages } from '../validation-messages';
-import { passwordSchema } from '@/pages/auth/model/schema/password.schema';
+import { passwordSchema } from './password.schema';
 
 export type TLoginForm = z.infer<typeof loginSchema>;
 

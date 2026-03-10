@@ -1,5 +1,5 @@
 import * as z from 'zod';
-import { ValidationMessages } from '@/pages/auth/model/validation-messages';
+import { ValidationMessages } from '../validation-messages';
 import type { ZodString } from 'zod';
 
 export const passwordSchema: ZodString = z
