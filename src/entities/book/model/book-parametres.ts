@@ -8,7 +8,7 @@ interface IBookParameter {
 }
 
 export const bookParameters: IBookParameter[] = [
-  { name: 'name', label: 'Name' },
+  { name: 'title', label: 'Title' },
   { name: 'author', label: 'Author' },
   { name: 'description', label: 'Description' },
   { name: 'genre', label: 'Genre' },

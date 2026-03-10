@@ -9,10 +9,11 @@ export const createBook = async (formData: TBookForm) => {
     author: formData.author ?? null,
     description: formData.description ?? null,
     genre: formData.genre ?? null,
-    name: formData.name,
+    title: formData.title,
     page_count: formData.pageCount,
     price: formData.price,
     rating: formData.rating ?? null,
+    cover_url: formData.cover ?? null,
   };
   const client = await createSupabaseServerClient();
 

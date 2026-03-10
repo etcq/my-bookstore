@@ -17,7 +17,7 @@ export const bookSchema = z.object({
     .string()
     .min(2, { message: bookValidationMessages.LENGTH })
     .optional(),
-  name: z.string().min(1, { message: bookValidationMessages.REQUIRED }),
+  title: z.string().min(1, { message: bookValidationMessages.REQUIRED }),
   pageCount: z
     .number()
     .positive({ message: bookValidationMessages.POSITIVE_INPUT }),
@@ -29,6 +29,7 @@ export const bookSchema = z.object({
     .number()
     .positive({ message: bookValidationMessages.POSITIVE_INPUT })
     .optional(),
+  cover: z.string().optional(),
 });
 
 export type TBookForm = z.infer<typeof bookSchema>;

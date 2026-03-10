@@ -7,23 +7,23 @@ import { FormControlledInput } from '@/shared/ui';
 import { Button } from '@/shared/ui/kit/button';
 import { bookParameters } from '@/entities/book/model/book-parametres';
 import { createBook } from '@/features/create-book/api/create-book';
+import { CoverImageSelect } from '@/features/create-book/ui/cover-image-select';
 
 export const CreateBookForm = () => {
-  const { control, handleSubmit, reset } = useForm<TBookForm>({
+  const { control, handleSubmit } = useForm<TBookForm>({
     resolver: zodResolver(bookSchema),
   });
 
   const onSubmit = async (data: TBookForm) => {
     try {
       await createBook(data);
-      reset();
     } catch (error) {
       console.error('Error creating book:', error);
     }
   };
 
   return (
-    <div className="w-1/2 m-auto">
+    <div className="w-1/2 m-auto flex items-center justify-center">
       <form
         // eslint-disable-next-line @typescript-eslint/no-misused-promises
         onSubmit={handleSubmit(onSubmit)}
@@ -37,6 +37,8 @@ export const CreateBookForm = () => {
             type={field.type}
           />
         ))}
+        <CoverImageSelect name="cover" label="Cover" control={control} />
+
         <Button type="submit" className="mt-3">
           Create
         </Button>

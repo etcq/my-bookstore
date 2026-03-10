@@ -1,6 +1,6 @@
 'use server';
 
-import type { TUserInformationForm } from '@/pages/auth/model/schema/user-information.schema';
+import type { TUserInformationForm } from '@/features/auth';
 import { createSupabaseServerClient } from '@/shared/lib/supabase/server-client';
 
 export const updateUser = async (formData: TUserInformationForm) => {
