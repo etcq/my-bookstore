@@ -40,8 +40,9 @@ export const CreateBookForm = () => {
   return (
     <div className="w-1/2 m-auto flex items-center justify-center">
       <form
-        // eslint-disable-next-line @typescript-eslint/no-misused-promises
-        onSubmit={handleSubmit(onSubmit)}
+        onSubmit={(event) => {
+          void handleSubmit(onSubmit)(event);
+        }}
       >
         {bookParameters.map((field) => (
           <FormControlledInput<TBookForm>

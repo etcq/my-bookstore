@@ -50,8 +50,9 @@ export const ProfilePage = ({ userData }: { userData: TUserData }) => {
         </Button>
       </div>
       <form
-        // eslint-disable-next-line @typescript-eslint/no-misused-promises
-        onSubmit={handleSubmit(onSubmit)}
+        onSubmit={(e) => {
+          void handleSubmit(onSubmit)(e);
+        }}
         className="flex flex-col gap-4 max-w-md mx-auto mt-8"
       >
         {mainInformationFields.map((field) => (
