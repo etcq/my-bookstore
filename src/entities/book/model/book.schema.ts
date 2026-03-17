@@ -4,8 +4,9 @@ import { bookValidationMessages } from './book-validation-messages';
 export const bookSchema = z.object({
   author: z
     .string()
+    .trim()
     .min(2, { message: bookValidationMessages.LENGTH })
-    .regex(/^[A-Za-z]+\s/, {
+    .regex(/^[A-Za-z]+(?:\s+[A-Za-z]+)*$/, {
       message: bookValidationMessages.SPECIAL_CHAR,
     })
     .optional(),
