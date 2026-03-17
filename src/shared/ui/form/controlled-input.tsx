@@ -37,7 +37,9 @@ export function FormControlledInput<T extends FieldValues>({
             onChange={(event) => {
               field.onChange(
                 type === 'number'
-                  ? Number(event.target.value)
+                  ? event.target.value.length > 0
+                    ? +event.target.value
+                    : undefined
                   : event.target.value,
               );
             }}

@@ -37,8 +37,9 @@ export function LoginPage() {
       </span>
 
       <form
-        // eslint-disable-next-line @typescript-eslint/no-misused-promises
-        onSubmit={handleSubmit(onSubmit)}
+        onSubmit={(e) => {
+          void handleSubmit(onSubmit)(e);
+        }}
         className="flex flex-col gap-5 max-w-sm mx-auto"
       >
         {loginFields.map((field) => (
