@@ -7,6 +7,8 @@ export type Json =
   | Json[];
 
 export type Database = {
+  // Allows to automatically instantiate createClient with right options
+  // instead of createClient<Database, { PostgrestVersion: 'XX' }>(URL, KEY)
   __InternalSupabase: {
     PostgrestVersion: '14.1';
   };
@@ -15,36 +17,36 @@ export type Database = {
       books: {
         Row: {
           author: string | null;
-          cover_url: string | null;
+          cover: string | null;
           created_at: string;
           description: string | null;
           genre: string | null;
           id: string;
-          page_count: number | null;
+          pages: number | null;
           price: number | null;
           rating: number | null;
           title: string | null;
         };
         Insert: {
           author?: string | null;
-          cover_url?: string | null;
+          cover?: string | null;
           created_at?: string;
           description?: string | null;
           genre?: string | null;
           id?: string;
-          page_count?: number | null;
+          pages?: number | null;
           price?: number | null;
           rating?: number | null;
           title?: string | null;
         };
         Update: {
           author?: string | null;
-          cover_url?: string | null;
+          cover?: string | null;
           created_at?: string;
           description?: string | null;
           genre?: string | null;
           id?: string;
-          page_count?: number | null;
+          pages?: number | null;
           price?: number | null;
           rating?: number | null;
           title?: string | null;
