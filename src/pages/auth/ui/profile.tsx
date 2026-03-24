@@ -11,33 +11,31 @@ import {
 } from '@/features/auth';
 import { DateSelect, FormControlledInput } from '@/shared/ui';
 import { zodResolver } from '@hookform/resolvers/zod';
-import type { TUserData } from '@/entities/user/model/types';
 import { getUserInfo } from '@/entities/user';
 
 export const ProfilePage = () => {
   const [isEditing, setIsEditing] = useState(false);
-  const [userData, setUserData] = useState<TUserData | null>(null);
-  const { control, handleSubmit } = useForm<TUserInformationForm>({
+  const { control, handleSubmit, reset } = useForm<TUserInformationForm>({
     resolver: zodResolver(userInformationSchema),
-    defaultValues: {
-      email: userData?.email ?? undefined,
-      username: userData?.username ?? undefined,
-      firstName: userData?.first_name ?? undefined,
-      gender: (userData?.gender as 'male' | 'female' | null) ?? 'male',
-      lastName: userData?.last_name ?? undefined,
-      dateOfBirth: userData?.date_of_birth ?? undefined,
-    },
+    mode: 'onChange',
   });
 
   useLayoutEffect(() => {
     getUserInfo()
       .then((data) => {
-        setUserData(data);
+        reset({
+          email: data.email ?? undefined,
+          username: data.username ?? undefined,
+          firstName: data.first_name ?? undefined,
+          lastName: data.last_name ?? undefined,
+          gender: data.gender as 'male' | 'female' | undefined,
+          dateOfBirth: data.date_of_birth ?? undefined,
+        });
       })
       .catch((error: unknown) => {
         console.error('Error fetching user data:', error);
       });
-  }, []);
+  }, [reset]);
 
   const onSubmit = async (data: TUserInformationForm) => {
     try {
