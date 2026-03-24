@@ -1,30 +1,43 @@
 'use client';
-import { useState } from 'react';
+import { useLayoutEffect, useState } from 'react';
 import { Button } from '@/shared/ui/kit/button';
 import { useForm } from 'react-hook-form';
-import { mainInformationFields } from '@/features/auth';
-import { DateSelect, FormControlledInput } from '@/shared/ui';
-import { GenderSelect } from '@/features/auth';
 import type { TUserInformationForm } from '@/features/auth';
+import {
+  GenderSelect,
+  mainInformationFields,
+  updateUser,
+  userInformationSchema,
+} from '@/features/auth';
+import { DateSelect, FormControlledInput } from '@/shared/ui';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { userInformationSchema } from '@/features/auth';
 import type { TUserData } from '@/entities/user/model/types';
-import { updateUser } from '@/features/auth';
+import { getUserInfo } from '@/entities/user';
 
-export const ProfilePage = ({ userData }: { userData: TUserData }) => {
+export const ProfilePage = () => {
   const [isEditing, setIsEditing] = useState(false);
-
+  const [userData, setUserData] = useState<TUserData | null>(null);
   const { control, handleSubmit } = useForm<TUserInformationForm>({
     resolver: zodResolver(userInformationSchema),
     defaultValues: {
-      email: userData.email ?? undefined,
-      username: userData.username ?? undefined,
-      firstName: userData.first_name ?? undefined,
-      gender: (userData.gender as 'male' | 'female' | null) ?? 'male',
-      lastName: userData.last_name ?? undefined,
-      dateOfBirth: userData.date_of_birth ?? undefined,
+      email: userData?.email ?? undefined,
+      username: userData?.username ?? undefined,
+      firstName: userData?.first_name ?? undefined,
+      gender: (userData?.gender as 'male' | 'female' | null) ?? 'male',
+      lastName: userData?.last_name ?? undefined,
+      dateOfBirth: userData?.date_of_birth ?? undefined,
     },
   });
+
+  useLayoutEffect(() => {
+    getUserInfo()
+      .then((data) => {
+        setUserData(data);
+      })
+      .catch((error: unknown) => {
+        console.error('Error fetching user data:', error);
+      });
+  }, []);
 
   const onSubmit = async (data: TUserInformationForm) => {
     try {

@@ -1,11 +1,11 @@
 'use client';
 import { createSupabaseBrowserClient } from '@/shared/lib/supabase/browser-client';
 
-export const downloadCover = async (coverUrl: string) => {
+export const downloadCover = async (coverUrl: string | null) => {
   const client = createSupabaseBrowserClient();
   const { data, error } = await client.storage
     .from('covers')
-    .download(coverUrl);
+    .download(coverUrl ?? '');
   if (error) {
     throw error;
   }

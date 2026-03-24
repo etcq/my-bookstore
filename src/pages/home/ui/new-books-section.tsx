@@ -1,5 +1,3 @@
-'use client';
-
 import {
   Carousel,
   CarouselContent,
@@ -8,8 +6,12 @@ import {
   CarouselPrevious,
 } from '@/shared/ui/kit/carousel';
 import { BookCard } from '@/entities/book';
+import { getBooks } from '@/widgets/book-list/api/get-books';
 
-export const NewBooks = () => {
+export const NewBooks = async () => {
+  const books = await getBooks();
+  const multiplierBooks = [...books, ...books, ...books];
+
   return (
     <section className="py-14 bg-background">
       <p className="text-4xl text-center text-primary mb-8 font-semibold">
@@ -27,11 +29,19 @@ export const NewBooks = () => {
         }}
       >
         <CarouselContent>
-          {Array.from({ length: 10 }).map((_, index) => (
-            <CarouselItem className="lg:basis-1/4 md:basis-1/2" key={index}>
-              <BookCard />
-            </CarouselItem>
-          ))}
+          {multiplierBooks.map(
+            ({ author, price, title, rating, cover }, index) => (
+              <CarouselItem className="lg:basis-1/4 md:basis-1/2" key={index}>
+                <BookCard
+                  author={author}
+                  price={price}
+                  title={title}
+                  rating={rating}
+                  cover={cover}
+                />
+              </CarouselItem>
+            ),
+          )}
         </CarouselContent>
         <CarouselPrevious />
         <CarouselNext />

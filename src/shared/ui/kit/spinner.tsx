@@ -1,10 +1,10 @@
-import { Loader2Icon } from 'lucide-react';
-
+import { LoaderIcon } from 'lucide-react';
+import { ComponentProps } from 'react';
 import { cn } from '@/shared/lib/tailwind-merge';
 
-function Spinner({ className, ...props }: React.ComponentProps<'svg'>) {
+function Spinner({ className, ...props }: ComponentProps<'svg'>) {
   return (
-    <Loader2Icon
+    <LoaderIcon
       role="status"
       aria-label="Loading"
       className={cn('size-4 animate-spin', className)}

@@ -19,18 +19,16 @@ export const BookCard = ({
   const [coverImageUrl, setCoverImageUrl] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   useLayoutEffect(() => {
-    if (cover) {
-      downloadCover(cover)
-        .then((url) => {
-          setCoverImageUrl(url);
-        })
-        .catch(() => {
-          setCoverImageUrl(defaultCoverPath);
-        })
-        .finally(() => {
-          setIsLoading(false);
-        });
-    }
+    downloadCover(cover)
+      .then((url) => {
+        setCoverImageUrl(url);
+      })
+      .catch(() => {
+        setCoverImageUrl(defaultCoverPath);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
   }, [cover]);
   return (
     <div className="w-80 h-120">
