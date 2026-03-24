@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export default function NotFound() {
   return (
-    <div className="h-full flex items-center justify-center bg-background px-4">
+    <div className="min-h-[calc(100dvh-80px)] w-full grid place-items-center bg-background px-4 py-6">
       <div className="max-w-4xl w-full flex flex-col md:flex-row items-center gap-10 md:gap-16">
         <div className="flex justify-center md:justify-end w-full md:w-1/2">
           <div className="relative max-w-xs w-full h-auto aspect-square">
