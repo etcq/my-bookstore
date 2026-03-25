@@ -1,5 +1,1 @@
-import { RegistrationPage } from '@/pages/auth';
-
-export default function Page() {
-  return <RegistrationPage />;
-}
+export { RegistrationPage as default } from '@/pages/auth';
