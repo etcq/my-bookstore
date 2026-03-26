@@ -1,8 +1,16 @@
 import { BookCard } from '@/entities/book';
 import { getBooks } from '@/widgets/book-list/api/get-books';
 
-export const BookList = async ({ className }: { className?: string }) => {
-  const data = await getBooks();
+interface IBookList {
+  className?: string;
+  searchedString?: string;
+}
+
+export const BookList = async ({
+  className,
+  searchedString = '',
+}: IBookList) => {
+  const data = await getBooks(searchedString);
   return (
     <div className={`flex gap-4 m-4 flex-wrap ${className ?? ''}`}>
       {data.map(({ id, author, price, title, rating, cover }) => (
