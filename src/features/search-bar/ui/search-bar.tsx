@@ -7,13 +7,12 @@ import { Search } from 'lucide-react';
 
 export const SearchBar = () => {
   const params = useSearchParams();
-  const searchedString = params?.get('search');
   const pathname = usePathname();
   const router = useRouter();
-  const [value, setValue] = useState(searchedString ?? '');
+  const [value, setValue] = useState(params?.get('search') ?? '');
 
   const updateSearch = () => {
-    if (value === searchedString || !pathname) return;
+    if (value === params?.get('search') || !pathname) return;
     const newParams = new URLSearchParams(params?.toString() ?? '');
     if (value) {
       newParams.set('search', value);

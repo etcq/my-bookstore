@@ -13,7 +13,7 @@ export async function CatalogPage({ searchParams }: ICatalogPageProps) {
   const searchingString = checkParams(params.search);
   return (
     <div className="flex h-full w-full flex-col items-center">
-      <SearchBar />
+      <SearchBar key={searchingString} />
       <Suspense fallback={<Loading />}>
         <BookList className="w-[70%]" searchedString={searchingString} />
       </Suspense>
