@@ -34,6 +34,7 @@ export const SearchBar = () => {
         type="text"
         className="w-full my-4 md:text-xl"
         value={value}
+        placeholder="Search books or authors..."
         onChange={(e) => {
           setValue(e.target.value);
         }}
