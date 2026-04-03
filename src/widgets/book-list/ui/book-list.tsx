@@ -8,7 +8,7 @@ interface IBookList {
 
 export const BookList = ({ className, books }: IBookList) => {
   return (
-    <div className={`flex gap-4 m-4 flex-wrap ${className ?? ''}`}>
+    <div className={`flex gap-4 flex-wrap ${className ?? ''}`}>
       {!books || books.length === 0 ? (
         <p>Books not found</p>
       ) : (
