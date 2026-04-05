@@ -1,4 +1,4 @@
-import type { TBook } from '@/entities/book/model/types';
+import type { TBook } from '@/entities/book';
 
 interface IUseBookListInformationProps {
   bookList: TBook[] | null;

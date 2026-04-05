@@ -1,7 +1,7 @@
 'use server';
 
 import { createSupabaseServerClient } from '@/shared/lib/supabase/server-client';
-import type { TBookForm } from '@/entities/book/model/book.schema';
+import type { TBookForm } from '@/entities/book';
 import type { Tables } from '@/shared/lib/supabase/types';
 
 export const createBook = async (formData: TBookForm) => {

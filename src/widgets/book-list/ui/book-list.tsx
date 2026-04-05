@@ -1,5 +1,5 @@
 import { BookCard } from '@/entities/book';
-import type { TBook } from '@/entities/book/model/types';
+import type { TBook } from '@/entities/book';
 
 interface IBookList {
   className?: string;

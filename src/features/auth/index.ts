@@ -1,5 +1,6 @@
 export { signIn } from './api/sign-in';
 export { signUp } from './api/sign-up';
+export { signOut } from './api/sign-out';
 export { updateUser } from './api/update-user';
 export { getUsernames } from './api/get-usernames';
 

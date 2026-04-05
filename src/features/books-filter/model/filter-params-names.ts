@@ -7,3 +7,6 @@ export const FILTER_PARAM_NAMES = {
   ratingTo: 'rating_to',
   stockOnly: 'stock_only',
 } as const;
+
+export type TFilterOptions =
+  (typeof FILTER_PARAM_NAMES)[keyof typeof FILTER_PARAM_NAMES];

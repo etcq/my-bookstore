@@ -6,10 +6,10 @@ import {
   CarouselPrevious,
 } from '@/shared/ui/kit/carousel';
 import { BookCard } from '@/entities/book';
-import { getBooks } from '@/pages/catalog/api/get-books';
+import { getBooksCatalog } from '@/pages/catalog/api/get-books';
 
 export const NewBooks = async () => {
-  const books = (await getBooks()) ?? [];
+  const books = (await getBooksCatalog()) ?? [];
   const multiplierBooks = [...books];
 
   return (

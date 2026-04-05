@@ -8,7 +8,7 @@ import { Button } from '@/shared/ui/kit/button';
 import { User } from 'lucide-react';
 import { UserMenuTrigger } from '@/shared/ui/user-menu-trigger';
 import Link from 'next/link';
-import { signOut } from '@/features/auth/api/sign-out';
+import { signOut } from '@/features/auth';
 import { useSession } from '@/app/session-provider';
 import { ROUTES } from '@/shared/routes';
 
