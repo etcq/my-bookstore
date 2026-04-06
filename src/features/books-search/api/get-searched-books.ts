@@ -5,6 +5,6 @@ export const getSearchedBooks = (
   searchedString?: string | null,
 ) => {
   if (!searchedString) return query;
-  const searchPattern = `%${searchedString}%`;
+  const searchPattern = `%${searchedString.trim()}%`;
   return query.or(`title.ilike.${searchPattern},author.ilike.${searchPattern}`);
 };

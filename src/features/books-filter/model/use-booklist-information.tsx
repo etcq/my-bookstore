@@ -15,13 +15,16 @@ export const useBookListInformation = ({
       ratingDiapason: [0, 0],
     };
   const categories = ['all', ...bookCategories];
-  const priceDiapason = [
-    Math.floor(Math.min(...bookList.map((book) => book.price ?? 0))),
-    Math.ceil(Math.max(...bookList.map((book) => book.price ?? 0))),
-  ];
+  const priceDiapason =
+    bookList.length === 0
+      ? [0, 0]
+      : [
+          Math.floor(Math.min(...bookList.map((book) => book.price ?? 0))),
+          Math.ceil(Math.max(...bookList.map((book) => book.price ?? 100))),
+        ];
   const ratingDiapason = [
     Math.floor(Math.min(...bookList.map((book) => book.rating ?? 0))),
-    Math.ceil(Math.max(...bookList.map((book) => book.rating ?? 0))),
+    Math.ceil(Math.max(...bookList.map((book) => book.rating ?? 10))),
   ];
 
   return { categories, priceDiapason, ratingDiapason };
