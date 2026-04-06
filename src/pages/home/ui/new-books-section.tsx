@@ -6,11 +6,11 @@ import {
   CarouselPrevious,
 } from '@/shared/ui/kit/carousel';
 import { BookCard } from '@/entities/book';
-import { getBooks } from '@/widgets/book-list/api/get-books';
+import { getBooksCatalog } from '@/pages/catalog/api/get-books';
 
 export const NewBooks = async () => {
-  const books = await getBooks();
-  const multiplierBooks = [...books, ...books, ...books];
+  const books = (await getBooksCatalog()) ?? [];
+  const multiplierBooks = [...books];
 
   return (
     <section className="py-14 bg-background">

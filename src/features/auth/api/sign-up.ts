@@ -1,5 +1,5 @@
 'use server';
-import { dataBaseColsName } from '@/entities/user/model/constants';
+import { dataBaseColsName } from '@/entities/user';
 import { createSupabaseServerClient } from '@/shared/lib/supabase/server-client';
 import type { TRegistrationForm } from '@/features/auth';
 

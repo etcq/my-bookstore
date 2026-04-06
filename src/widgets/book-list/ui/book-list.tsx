@@ -1,28 +1,28 @@
 import { BookCard } from '@/entities/book';
-import { getBooks } from '@/widgets/book-list/api/get-books';
+import type { TBook } from '@/entities/book';
 
 interface IBookList {
   className?: string;
-  searchedString?: string;
+  books: TBook[] | null;
 }
 
-export const BookList = async ({
-  className,
-  searchedString = '',
-}: IBookList) => {
-  const data = await getBooks(searchedString);
+export const BookList = ({ className, books }: IBookList) => {
   return (
-    <div className={`flex gap-4 m-4 flex-wrap ${className ?? ''}`}>
-      {data.map(({ id, author, price, title, rating, cover }) => (
-        <BookCard
-          key={id}
-          author={author}
-          price={price}
-          title={title}
-          rating={rating}
-          cover={cover}
-        />
-      ))}
+    <div className={`flex gap-4 flex-wrap ${className ?? ''}`}>
+      {!books || books.length === 0 ? (
+        <p>Books not found</p>
+      ) : (
+        books.map(({ id, author, price, title, rating, cover }) => (
+          <BookCard
+            key={id}
+            author={author}
+            price={price}
+            title={title}
+            rating={rating}
+            cover={cover}
+          />
+        ))
+      )}
     </div>
   );
 };

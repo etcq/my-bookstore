@@ -17,10 +17,10 @@ export type Database = {
       books: {
         Row: {
           author: string | null;
+          category: Database['public']['Enums']['book_category'] | null;
           cover: string | null;
           created_at: string;
           description: string | null;
-          genre: string | null;
           id: string;
           pages: number | null;
           price: number | null;
@@ -29,10 +29,10 @@ export type Database = {
         };
         Insert: {
           author?: string | null;
+          category?: Database['public']['Enums']['book_category'] | null;
           cover?: string | null;
           created_at?: string;
           description?: string | null;
-          genre?: string | null;
           id?: string;
           pages?: number | null;
           price?: number | null;
@@ -41,10 +41,10 @@ export type Database = {
         };
         Update: {
           author?: string | null;
+          category?: Database['public']['Enums']['book_category'] | null;
           cover?: string | null;
           created_at?: string;
           description?: string | null;
-          genre?: string | null;
           id?: string;
           pages?: number | null;
           price?: number | null;
@@ -94,7 +94,22 @@ export type Database = {
       [_ in never]: never;
     };
     Enums: {
-      [_ in never]: never;
+      book_category:
+        | 'Adventure'
+        | 'History'
+        | 'ScienceFiction'
+        | 'Productivity'
+        | 'Biography'
+        | 'Business'
+        | 'Dystopia'
+        | 'Fantasy'
+        | 'Finance'
+        | 'Horror'
+        | 'Philosophy'
+        | 'Programming'
+        | 'Psychology'
+        | 'SelfHelp'
+        | 'Thriller';
     };
     CompositeTypes: {
       [_ in never]: never;
@@ -224,6 +239,24 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      book_category: [
+        'Adventure',
+        'History',
+        'ScienceFiction',
+        'Productivity',
+        'Biography',
+        'Business',
+        'Dystopia',
+        'Fantasy',
+        'Finance',
+        'Horror',
+        'Philosophy',
+        'Programming',
+        'Psychology',
+        'SelfHelp',
+        'Thriller',
+      ],
+    },
   },
 } as const;

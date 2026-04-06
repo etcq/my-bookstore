@@ -3,10 +3,9 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { bookSchema, type TBookForm } from '@/entities/book/model/book.schema';
+import { bookSchema, bookParameters, type TBookForm } from '@/entities/book';
 import { FormControlledInput } from '@/shared/ui';
 import { Button } from '@/shared/ui/kit/button';
-import { bookParameters } from '@/entities/book/model/book-parameters';
 import { createBook } from '@/features/create-book/api/create-book';
 import { uploadCover } from '@/features/create-book/api/upload-cover';
 import { CoverImageSelect } from '@/features/create-book/ui/cover-image-select';
