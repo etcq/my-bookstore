@@ -3,9 +3,9 @@ import { Button } from '@/shared/ui/kit/button';
 import type { TBookCard } from '../model/types';
 import { RatingStars } from '@/shared/ui/rating-stars';
 import { useLayoutEffect, useState } from 'react';
-import { downloadCover } from '@/entities/book/api/download-cover';
+import { downloadCover } from '../api/download-cover';
 import Image from 'next/image';
-import { CardSkeleton } from '@/entities/book';
+import { CardSkeleton } from './card-skeleton';
 
 const defaultCoverPath = '/images/not-found.png';
 

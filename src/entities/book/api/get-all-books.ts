@@ -1,4 +1,4 @@
-import { createSupabaseServerClientWithoutCookies } from '@/shared/lib/supabase/server-client';
+import { createSupabaseServerClientWithoutCookies } from '@/shared/lib/supabase/server-client-no-cookies';
 
 export const booksQuery = () => {
   const client = createSupabaseServerClientWithoutCookies();

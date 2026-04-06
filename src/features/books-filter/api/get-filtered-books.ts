@@ -2,11 +2,16 @@ import {
   FILTER_PARAM_NAMES,
   type TFilterOptions,
 } from '@/features/books-filter/model/filter-params-names';
-import type { TBookQuery } from '@/entities/book';
+import { bookCategories, type TBookQuery } from '@/entities/book';
+import type { TBookCategory } from '@/entities/book/model/types';
+
+const isBookCategory = (value: string | null): value is TBookCategory => {
+  return bookCategories.some((category) => category === value);
+};
 
 const filterMap = {
   [FILTER_PARAM_NAMES.categories]: (query: TBookQuery, value: string) =>
-    query.eq('genre', value),
+    isBookCategory(value) ? query.eq('category', value) : query,
   [FILTER_PARAM_NAMES.authors]: (query: TBookQuery, value: string) =>
     query.eq('author', value),
   [FILTER_PARAM_NAMES.priceFrom]: (query: TBookQuery, value: string) =>

@@ -24,17 +24,3 @@ export async function createSupabaseServerClient() {
     },
   });
 }
-
-export const createSupabaseServerClientWithoutCookies = () => {
-  const { supabaseURL, supabaseKey } = getSupabaseEnvVariables();
-  return createServerClient<Database>(supabaseURL, supabaseKey, {
-    cookies: {
-      getAll() {
-        return [];
-      },
-      setAll() {
-        // no-op: public client doesn't persist session cookies
-      },
-    },
-  });
-};

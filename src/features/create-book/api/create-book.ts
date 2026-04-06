@@ -8,7 +8,7 @@ export const createBook = async (formData: TBookForm) => {
   const payload: Omit<Tables<'books'>, 'id' | 'created_at'> = {
     author: formData.author ?? null,
     description: formData.description ?? null,
-    genre: formData.genre ?? null,
+    category: formData.category ?? null,
     title: formData.title,
     pages: formData.pageCount,
     price: formData.price,

@@ -1,4 +1,4 @@
-export const bookGenres = [
+export const bookCategories = [
   { name: 'Fiction', emoji: '📖', color: 'bg-amber-100 dark:bg-amber-900' },
   { name: 'Science', emoji: '🔬', color: 'bg-blue-100 dark:bg-blue-900' },
   { name: 'History', emoji: '🏛️', color: 'bg-stone-100 dark:bg-stone-700' },

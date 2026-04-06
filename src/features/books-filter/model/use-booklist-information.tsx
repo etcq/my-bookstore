@@ -1,4 +1,5 @@
 import type { TBook } from '@/entities/book';
+import { bookCategories } from '@/entities/book';
 
 interface IUseBookListInformationProps {
   bookList: TBook[] | null;
@@ -13,10 +14,7 @@ export const useBookListInformation = ({
       priceDiapason: [0, 0],
       ratingDiapason: [0, 0],
     };
-  const categories = [
-    'all',
-    ...Array.from(new Set(bookList.map((book) => book.genre))),
-  ];
+  const categories = ['all', ...bookCategories];
   const priceDiapason = [
     Math.floor(Math.min(...bookList.map((book) => book.price ?? 0))),
     Math.ceil(Math.max(...bookList.map((book) => book.price ?? 0))),
