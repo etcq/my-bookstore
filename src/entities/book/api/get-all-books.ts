@@ -2,7 +2,7 @@ import { createSupabaseServerClientWithoutCookies } from '@/shared/lib/supabase/
 
 export const booksQuery = () => {
   const client = createSupabaseServerClientWithoutCookies();
-  return client.from('books').select();
+  return client.from('books').select('*', { count: 'exact' });
 };
 
 export type TBookQuery = ReturnType<typeof booksQuery>;
