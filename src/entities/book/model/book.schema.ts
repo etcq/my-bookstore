@@ -1,5 +1,6 @@
 import { z } from 'zod';
 import { bookValidationMessages } from './book-validation-messages';
+import { bookCategories } from './book-categories';
 
 export const bookSchema = z.object({
   author: z
@@ -14,10 +15,7 @@ export const bookSchema = z.object({
     .string()
     .min(2, { message: bookValidationMessages.REQUIRED })
     .optional(),
-  genre: z
-    .string()
-    .min(2, { message: bookValidationMessages.LENGTH })
-    .optional(),
+  category: z.enum(bookCategories).optional(),
   title: z.string().min(1, { message: bookValidationMessages.REQUIRED }),
   pageCount: z
     .number()

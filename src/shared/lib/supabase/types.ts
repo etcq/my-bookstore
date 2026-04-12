@@ -7,6 +7,8 @@ export type Json =
   | Json[];
 
 export type Database = {
+  // Allows to automatically instantiate createClient with right options
+  // instead of createClient<Database, { PostgrestVersion: 'XX' }>(URL, KEY)
   __InternalSupabase: {
     PostgrestVersion: '14.1';
   };
@@ -15,36 +17,36 @@ export type Database = {
       books: {
         Row: {
           author: string | null;
-          cover_url: string | null;
+          category: Database['public']['Enums']['book_category'] | null;
+          cover: string | null;
           created_at: string;
           description: string | null;
-          genre: string | null;
           id: string;
-          page_count: number | null;
+          pages: number | null;
           price: number | null;
           rating: number | null;
           title: string | null;
         };
         Insert: {
           author?: string | null;
-          cover_url?: string | null;
+          category?: Database['public']['Enums']['book_category'] | null;
+          cover?: string | null;
           created_at?: string;
           description?: string | null;
-          genre?: string | null;
           id?: string;
-          page_count?: number | null;
+          pages?: number | null;
           price?: number | null;
           rating?: number | null;
           title?: string | null;
         };
         Update: {
           author?: string | null;
-          cover_url?: string | null;
+          category?: Database['public']['Enums']['book_category'] | null;
+          cover?: string | null;
           created_at?: string;
           description?: string | null;
-          genre?: string | null;
           id?: string;
-          page_count?: number | null;
+          pages?: number | null;
           price?: number | null;
           rating?: number | null;
           title?: string | null;
@@ -92,7 +94,22 @@ export type Database = {
       [_ in never]: never;
     };
     Enums: {
-      [_ in never]: never;
+      book_category:
+        | 'Adventure'
+        | 'History'
+        | 'ScienceFiction'
+        | 'Productivity'
+        | 'Biography'
+        | 'Business'
+        | 'Dystopia'
+        | 'Fantasy'
+        | 'Finance'
+        | 'Horror'
+        | 'Philosophy'
+        | 'Programming'
+        | 'Psychology'
+        | 'SelfHelp'
+        | 'Thriller';
     };
     CompositeTypes: {
       [_ in never]: never;
@@ -222,6 +239,24 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      book_category: [
+        'Adventure',
+        'History',
+        'ScienceFiction',
+        'Productivity',
+        'Biography',
+        'Business',
+        'Dystopia',
+        'Fantasy',
+        'Finance',
+        'Horror',
+        'Philosophy',
+        'Programming',
+        'Psychology',
+        'SelfHelp',
+        'Thriller',
+      ],
+    },
   },
 } as const;

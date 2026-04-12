@@ -1,19 +1,19 @@
 'use server';
 
 import { createSupabaseServerClient } from '@/shared/lib/supabase/server-client';
-import type { TBookForm } from '@/entities/book/model/book.schema';
+import type { TBookForm } from '@/entities/book';
 import type { Tables } from '@/shared/lib/supabase/types';
 
 export const createBook = async (formData: TBookForm) => {
   const payload: Omit<Tables<'books'>, 'id' | 'created_at'> = {
     author: formData.author ?? null,
     description: formData.description ?? null,
-    genre: formData.genre ?? null,
+    category: formData.category ?? null,
     title: formData.title,
-    page_count: formData.pageCount,
+    pages: formData.pageCount,
     price: formData.price,
     rating: formData.rating ?? null,
-    cover_url: formData.cover ?? null,
+    cover: formData.cover ?? null,
   };
   const client = await createSupabaseServerClient();
 

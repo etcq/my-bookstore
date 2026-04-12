@@ -8,7 +8,7 @@ import { UserMenu } from './user-menu';
 
 export const Header = () => {
   return (
-    <header className="border-b bg-background dark:bg-background backdrop-blur h-[80px] w-full">
+    <header className="border-b bg-background dark:bg-background backdrop-blur h-[100px] w-full">
       <div className="flex items-center justify-between max-w-[1240px] px-4 mx-auto">
         <Link href={'/'}>
           <Logo />

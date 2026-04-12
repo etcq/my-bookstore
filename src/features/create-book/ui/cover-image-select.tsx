@@ -5,7 +5,6 @@ import type { IControlledFieldProps } from '@/shared/ui/form/types';
 import { Field, FieldError, FieldLabel } from '@/shared/ui/kit/field';
 import { Input } from '@/shared/ui/kit/input';
 
-
 export type TCoverImageSelect<T extends FieldValues> =
   IControlledFieldProps<T> & {
     label: string;

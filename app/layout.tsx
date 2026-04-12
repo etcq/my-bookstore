@@ -1,12 +1,14 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
-import type { ReactNode } from 'react';
-import { Header } from '@/widgets/header';
+import { type ReactNode, Suspense } from 'react';
+import { Geist, Geist_Mono } from 'next/font/google';
+import { Loading } from '@/shared/ui/loading';
 import { ThemeProvider } from '@/app';
-import { TooltipProvider } from '@/shared/ui/kit/tooltip';
-import { SessionProvider } from '@/app/session-provider';
-import { getSessionUser } from '@/entities/user/api/get-session-user';
+
+export const metadata: Metadata = {
+  title: 'My book store',
+  description: 'Buy a book and hire me',
+};
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -18,17 +20,11 @@ const geistMono = Geist_Mono({
   subsets: ['latin'],
 });
 
-export const metadata: Metadata = {
-  title: 'My book store',
-  description: 'Buy a book and hire me',
-};
-
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: Readonly<{
   children: ReactNode;
 }>) {
-  const user = await getSessionUser();
   return (
     <html lang="en" suppressHydrationWarning>
       <body
@@ -40,12 +36,7 @@ export default async function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <SessionProvider user={user}>
-            <TooltipProvider>
-              <Header />
-              <main className="h-[calc(100vh-80px)]">{children}</main>
-            </TooltipProvider>
-          </SessionProvider>
+          <Suspense fallback={<Loading />}>{children}</Suspense>;
         </ThemeProvider>
       </body>
     </html>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { CreateBookForm } from '@/features/create-book/ui/create-book-form';
+import { CreateBookForm } from '@/features/create-book';
 
 export const AdminPage = () => {
   return (
