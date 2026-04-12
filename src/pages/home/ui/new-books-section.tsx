@@ -9,8 +9,9 @@ import { BookCard } from '@/entities/book';
 import { getBooksCatalog } from '@/pages/catalog/api/get-books';
 
 export const NewBooks = async () => {
-  const books = (await getBooksCatalog()) ?? [];
-  const multiplierBooks = [...books];
+  const { data } = await getBooksCatalog();
+  if (!data) return null;
+  const multiplierBooks = [...data];
 
   return (
     <section className="py-14 bg-background">

@@ -36,7 +36,7 @@ export const SearchBar = () => {
         value={value}
         placeholder="Search books or authors..."
         onChange={(e) => {
-          setValue(e.target.value);
+          setValue(e.currentTarget.value);
         }}
         onKeyDown={handleKeyDown}
       />
