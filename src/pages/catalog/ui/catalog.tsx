@@ -38,7 +38,7 @@ export async function CatalogPage({ searchParams }: ICatalogPageProps) {
         <BooksFilter books={catalogData.data} />
         <BookList className="w-[70%]" books={catalogData.data} />
       </div>
-      <PaginationBar count={catalogData.count} />
+      <PaginationBar count={catalogData.count} className={'py-6'} />
     </div>
   );
 }

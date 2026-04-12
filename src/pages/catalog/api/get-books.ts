@@ -10,6 +10,8 @@ type TGetBooksCatalog = (
   searchedString?: string | null,
   sortPreset?: string | null,
   filterParams?: Record<string, string | null | undefined>,
+  page?: number,
+  booksPerPage?: number,
 ) => Promise<catalogInfo>;
 
 interface catalogInfo {
