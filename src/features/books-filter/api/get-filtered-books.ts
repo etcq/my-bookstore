@@ -7,7 +7,7 @@ import type { TBookCategory } from '@/entities/book/model/types';
 import { isNumericParamValue } from '@/features/books-filter/model/is-numeric-param-value';
 
 const isBookCategory = (value: string | null): value is TBookCategory => {
-  return bookCategories.some((category) => category === value);
+  return Object.values(bookCategories).some((category) => category === value);
 };
 
 const filterMap = {
@@ -33,8 +33,8 @@ export const getFilteredBooks = (
   query: TBookQuery,
   params: Record<string, string | null | undefined>,
 ): TBookQuery => {
-  return Object.entries(params).reduce((q, [key, value]) => {
-    if (!value || !(key in filterMap)) return q;
-    return filterMap[key as TFilterOptions](q, value);
+  return Object.entries(params).reduce((query, [key, value]) => {
+    if (!value || !(key in filterMap)) return query;
+    return filterMap[key as TFilterOptions](query, value);
   }, query);
 };

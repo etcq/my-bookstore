@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { ROUTES } from '@/shared/routes';
-import { bookCategories } from '../model/categories';
+import { bookCategoriesForPreview } from '../model/categories';
 
 export const GenresSection = () => {
   return (
@@ -10,8 +10,15 @@ export const GenresSection = () => {
         Browse by Genre
       </h2>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
-        {bookCategories.map((category) => (
-          <Link href={ROUTES.CATALOG} key={category.name}>
+        {bookCategoriesForPreview.map((category) => (
+          <Link
+            href={
+              category.param
+                ? `${ROUTES.CATALOG}?categories=${category.param}`
+                : ROUTES.CATALOG
+            }
+            key={category.name}
+          >
             <div
               className={`${category.color} rounded-2xl p-6 flex flex-col items-center gap-3 cursor-pointer hover:scale-105 transition-transform duration-200 shadow-sm`}
             >
