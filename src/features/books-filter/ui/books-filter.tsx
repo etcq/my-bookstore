@@ -31,7 +31,7 @@ export const BooksFilter = ({ books }: { books: TBook[] | null }) => {
   ]);
 
   return (
-    <aside className="w-full lg:w-64 shrink-0">
+    <aside className="w-full md:w-64 shrink-0">
       <Card>
         <CardContent className="p-6 space-y-6">
           <div className="flex items-center justify-between">

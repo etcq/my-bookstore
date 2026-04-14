@@ -4,7 +4,6 @@ import { type Database } from '@/shared/lib/supabase/types';
 
 export const createSupabaseServerClientWithoutCookies = () => {
   const { supabaseURL, supabaseKey } = getSupabaseEnvVariables();
-  console.log('client');
   return createServerClient<Database>(supabaseURL, supabaseKey, {
     cookies: {
       getAll() {

@@ -14,7 +14,7 @@ export const useBookListInformation = ({
       priceDiapason: [0, 0],
       ratingDiapason: [0, 0],
     };
-  const categories = ['all', ...bookCategories];
+  const categories = ['all', ...Object.values(bookCategories)];
   const priceDiapason =
     bookList.length === 0
       ? [0, 0]

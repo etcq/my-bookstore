@@ -1,19 +1,19 @@
 import type { TBookCategory } from '@/entities/book/model/types';
 
-export const bookCategories = [
-  'Adventure',
-  'History',
-  'ScienceFiction',
-  'Productivity',
-  'Biography',
-  'Business',
-  'Dystopia',
-  'Fantasy',
-  'Finance',
-  'Horror',
-  'Philosophy',
-  'Programming',
-  'Psychology',
-  'SelfHelp',
-  'Thriller',
-] as const satisfies TBookCategory[];
+export const bookCategories = {
+  ADVENTURE: 'Adventure',
+  HISTORY: 'History',
+  SCIENCE_FICTION: 'ScienceFiction',
+  PRODUCTIVITY: 'Productivity',
+  BIOGRAPHY: 'Biography',
+  BUSINESS: 'Business',
+  DYSTOPIA: 'Dystopia',
+  FANTASY: 'Fantasy',
+  FINANCE: 'Finance',
+  HORROR: 'Horror',
+  PHILOSOPHY: 'Philosophy',
+  PROGRAMMING: 'Programming',
+  PSYCHOLOGY: 'Psychology',
+  SELF_HELP: 'SelfHelp',
+  THRILLER: 'Thriller',
+} as const satisfies Record<string, TBookCategory>;

@@ -34,9 +34,9 @@ export async function CatalogPage({ searchParams }: ICatalogPageProps) {
         <SearchBar key={searchedString} />
         <BookSort />
       </div>
-      <div className="w-full flex flex-row items-start justify-center gap-4 px-4 py-2">
+      <div className="w-full flex md:flex-row md:items-start justify-center gap-4 px-4 py-2 md:px-10 md:py-6 flex-col items-center">
         <BooksFilter books={catalogData.data} />
-        <BookList className="w-[70%]" books={catalogData.data} />
+        <BookList className="max-w-310 min-w-2/3" books={catalogData.data} />
       </div>
       <PaginationBar count={catalogData.count} className={'py-6'} />
     </div>
