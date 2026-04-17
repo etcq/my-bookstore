@@ -2,14 +2,16 @@
 import { Button } from '@/shared/ui/kit/button';
 import type { TBookCard } from '../model/types';
 import { RatingStars } from '@/shared/ui/rating-stars';
-import { useLayoutEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { downloadCover } from '../api/download-cover';
 import Image from 'next/image';
 import { CardSkeleton } from './card-skeleton';
+import { useRouter } from 'next/navigation';
 
 const defaultCoverPath = '/images/not-found.png';
 
 export const BookCard = ({
+  id,
   title,
   price,
   author,
@@ -18,7 +20,9 @@ export const BookCard = ({
 }: TBookCard) => {
   const [coverImageUrl, setCoverImageUrl] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(true);
-  useLayoutEffect(() => {
+  const router = useRouter();
+
+  useEffect(() => {
     downloadCover(cover)
       .then((url) => {
         setCoverImageUrl(url);
@@ -30,12 +34,18 @@ export const BookCard = ({
         setIsLoading(false);
       });
   }, [cover]);
+
   return (
     <div className="w-80 h-120">
       {isLoading ? (
         <CardSkeleton />
       ) : (
-        <div className=" group relative flex h-full flex-col rounded-lg hover:shadow-xl hover:cursor-pointer transition-all duration-300 border border-border overflow-hidden bg-card text-card-foreground hover:bg-accent/60">
+        <div
+          className=" group relative flex h-full flex-col rounded-lg hover:shadow-xl hover:cursor-pointer transition-all duration-300 border border-border overflow-hidden bg-card text-card-foreground hover:bg-accent/60"
+          onClick={() => {
+            router.push(`/catalog/${id}`);
+          }}
+        >
           <div className="max-h-2/4 w-full flex justify-center bg-gray-900">
             <Image
               src={coverImageUrl ?? ''}

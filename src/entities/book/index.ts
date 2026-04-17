@@ -7,3 +7,4 @@ export { bookSchema } from './model/book.schema';
 export type { TBookForm } from './model/book.schema';
 export { bookParameters } from './model/book-parameters';
 export { bookCategories } from './model/book-categories';
+export { getBook } from './api/get-book';

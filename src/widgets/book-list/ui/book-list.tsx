@@ -15,6 +15,7 @@ export const BookList = ({ className, books }: IBookList) => {
         books.map(({ id, author, price, title, rating, cover }) => (
           <BookCard
             key={id}
+            id={id}
             author={author}
             price={price}
             title={title}
