@@ -5,7 +5,7 @@ import type { TBookForm } from '@/entities/book';
 import type { Tables } from '@/shared/lib/supabase/types';
 
 export const createBook = async (formData: TBookForm) => {
-  const payload: Omit<Tables<'books'>, 'id' | 'created_at'> = {
+  const payload: Omit<Tables<'books'>, 'id' | 'created_at' | 'in_stock'> = {
     author: formData.author ?? null,
     description: formData.description ?? null,
     category: formData.category ?? null,

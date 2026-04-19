@@ -31,9 +31,10 @@ export const NewBooks = async () => {
       >
         <CarouselContent>
           {multiplierBooks.map(
-            ({ author, price, title, rating, cover }, index) => (
+            ({ id, author, price, title, rating, cover }, index) => (
               <CarouselItem className="lg:basis-1/4 md:basis-1/2" key={index}>
                 <BookCard
+                  id={id}
                   author={author}
                   price={price}
                   title={title}
