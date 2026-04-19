@@ -31,7 +31,7 @@ export const BooksFilter = ({ books }: { books: TBook[] | null }) => {
   ]);
 
   return (
-    <aside className="w-full lg:w-64 shrink-0">
+    <aside className="w-full md:w-64 shrink-0">
       <Card>
         <CardContent className="p-6 space-y-6">
           <div className="flex items-center justify-between">
@@ -50,10 +50,9 @@ export const BooksFilter = ({ books }: { books: TBook[] | null }) => {
               Reset
             </Button>
           </div>
-
           <Separator />
 
-          {/* Категории */}
+          {/* categories */}
           <div className="space-y-3">
             <h4 className="text-sm font-medium">Category</h4>
             <div className="space-y-2">
@@ -77,10 +76,9 @@ export const BooksFilter = ({ books }: { books: TBook[] | null }) => {
               ))}
             </div>
           </div>
-
           <Separator />
 
-          {/* Рейтинг */}
+          {/* rating */}
           <div className="space-y-3">
             <div className="flex items-center justify-between">
               <h4 className="text-sm font-medium">Rating range</h4>
@@ -112,10 +110,9 @@ export const BooksFilter = ({ books }: { books: TBook[] | null }) => {
               className="py-4"
             />
           </div>
-
           <Separator />
 
-          {/* Цена */}
+          {/* Price */}
           <div className="space-y-3">
             <div className="flex items-center justify-between">
               <h4 className="text-sm font-medium">Price Range</h4>
@@ -139,10 +136,9 @@ export const BooksFilter = ({ books }: { books: TBook[] | null }) => {
               className="py-4"
             />
           </div>
-
           <Separator />
 
-          {/* Наличие */}
+          {/* In stock */}
           <div className="space-y-3">
             <h4 className="text-sm font-medium">Availability</h4>
             <label className="flex items-center gap-2 cursor-pointer">

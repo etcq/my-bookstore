@@ -36,12 +36,12 @@ export const BookCard = ({
   }, [cover]);
 
   return (
-    <div className="w-80 h-120">
+    <div className="lg:w-[30%] w-70 h-120">
       {isLoading ? (
         <CardSkeleton />
       ) : (
         <div
-          className=" group relative flex h-full flex-col rounded-lg hover:shadow-xl hover:cursor-pointer transition-all duration-300 border border-border overflow-hidden bg-card text-card-foreground hover:bg-accent/60"
+          className="group relative flex h-full flex-col rounded-lg hover:shadow-xl hover:cursor-pointer transition-all duration-300 border border-border overflow-hidden bg-card text-card-foreground hover:bg-accent/60"
           onClick={() => {
             router.push(`/catalog/${id}`);
           }}

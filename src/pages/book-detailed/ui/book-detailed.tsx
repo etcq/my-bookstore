@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { Button } from '@/shared/ui/kit/button';
 import { RatingStars } from '@/shared/ui/rating-stars';
 import { BookDetailedCover } from './book-detailed-cover';
+import { BookDetailedParameter } from './book-detailed-parameter';
 
 export const BookDetailedPage = async ({
   params,
@@ -50,24 +51,11 @@ export const BookDetailedPage = async ({
           </p>
 
           <div className="grid gap-3 text-sm">
-            <div className="rounded-md border border-border bg-background p-3">
-              <span className="text-muted-foreground">Category:</span>{' '}
-              <span className="font-medium">
-                {book.category ?? 'Not specified'}
-              </span>
-            </div>
-            <div className="rounded-md border border-border bg-background p-3">
-              <span className="text-muted-foreground">Pages:</span>{' '}
-              <span className="font-medium">
-                {book.pages ?? 'Not specified'}
-              </span>
-            </div>
-            <div className="rounded-md border border-border bg-background p-3">
-              <span className="text-muted-foreground">Published:</span>{' '}
-              <span className="font-medium">
-                {new Date(book.created_at).toLocaleDateString('ru-RU')}
-              </span>
-            </div>
+            <BookDetailedParameter label="Category" value={book.category} />
+            <BookDetailedParameter
+              label="Pages"
+              value={book.pages?.toString()}
+            />
           </div>
         </main>
 
@@ -87,13 +75,10 @@ export const BookDetailedPage = async ({
             Buy now
           </Button>
 
-          <div className="mt-4 rounded-md border border-border bg-background p-3 text-sm">
-            <p className="font-medium">Promo code</p>
-            <p className="mt-1 text-muted-foreground">NEW-YSCR-JTG5-FJ7D</p>
-          </div>
-
           <div className="mt-4 space-y-2 text-sm">
-            <p className="text-emerald-600">In stock</p>
+            <p className={book.in_stock ? 'text-emerald-600' : 'text-red-600'}>
+              {book.in_stock ? 'In stock' : 'Not in stock'}
+            </p>
             <p className="text-muted-foreground">Free delivery in 2-3 days</p>
           </div>
         </aside>
