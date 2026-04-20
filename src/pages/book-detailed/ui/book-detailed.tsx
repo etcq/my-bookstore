@@ -1,8 +1,8 @@
 import { getBook } from '@/entities/book';
+import { BookCover } from '@/entities/book';
 import { notFound } from 'next/navigation';
 import { Button } from '@/shared/ui/kit/button';
 import { RatingStars } from '@/shared/ui/rating-stars';
-import { BookDetailedCover } from './book-detailed-cover';
 import { BookDetailedParameter } from './book-detailed-parameter';
 
 export const BookDetailedPage = async ({
@@ -21,7 +21,11 @@ export const BookDetailedPage = async ({
       <div className="grid gap-6 lg:grid-cols-[260px_minmax(0,1fr)_320px]">
         <aside className="space-y-3">
           <div className="overflow-hidden rounded-xl border border-border bg-card">
-            <BookDetailedCover coverUrl={book.cover} title={book.title} />
+            <BookCover
+              key={book.cover ?? 'no-cover'}
+              coverUrl={book.cover}
+              title={book.title}
+            />
           </div>
         </aside>
 

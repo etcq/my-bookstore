@@ -1,21 +1,27 @@
 'use client';
 
-import { downloadCover } from '@/entities/book/api/download-cover';
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { Skeleton } from '@/shared/ui/kit/skeleton';
+import { downloadCover } from '../api/download-cover';
 
 const defaultCoverPath = '/images/not-found.png';
 
-interface IBookDetailedCoverProps {
+interface IBookCoverProps {
   coverUrl: string | null;
   title: string | null;
+  containerClassName?: string;
+  imageClassName?: string;
+  skeletonClassName?: string;
 }
 
-export const BookDetailedCover = ({
+export const BookCover = ({
   coverUrl,
   title,
-}: IBookDetailedCoverProps) => {
+  containerClassName,
+  imageClassName,
+  skeletonClassName,
+}: IBookCoverProps) => {
   const [coverImageUrl, setCoverImageUrl] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -33,14 +39,19 @@ export const BookDetailedCover = ({
   }, [coverUrl]);
 
   return (
-    <div className="aspect-3/4 w-full flex justify-center bg-gray-900">
+    <div
+      className={
+        containerClassName ??
+        'aspect-3/4 w-full flex justify-center bg-gray-900'
+      }
+    >
       {isLoading ? (
-        <Skeleton className="w-full h-full" />
+        <Skeleton className={skeletonClassName ?? 'h-full w-full'} />
       ) : (
         <Image
           src={coverImageUrl ?? defaultCoverPath}
           alt={title ?? 'unknown book'}
-          className=" w-full h-auto"
+          className={imageClassName ?? 'h-auto w-full'}
           width={500}
           height={500}
         />
