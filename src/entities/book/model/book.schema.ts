@@ -15,7 +15,7 @@ export const bookSchema = z.object({
     .string()
     .min(2, { message: bookValidationMessages.REQUIRED })
     .optional(),
-  category: z.enum(bookCategories).optional(),
+  category: z.enum(Object.values(bookCategories)).optional(),
   title: z.string().min(1, { message: bookValidationMessages.REQUIRED }),
   pageCount: z
     .number()
