@@ -5,7 +5,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/shared/ui/kit/select';
+} from '@/shared/ui/kit';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { sortPresetsLabels } from '../model/sort-presets';
 import { cn } from '@/shared/lib/tailwind-merge';

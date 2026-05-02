@@ -1,5 +1,5 @@
 'use client';
-import { Button } from '@/shared/ui/kit/button';
+import { Button } from '@/shared/ui/kit';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useTransition } from 'react';

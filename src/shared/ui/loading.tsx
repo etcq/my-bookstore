@@ -1,5 +1,5 @@
 import React from 'react';
-import { Spinner } from '@/shared/ui/kit/spinner';
+import { Spinner } from '@/shared/ui/kit';
 
 export const Loading = () => {
   return (

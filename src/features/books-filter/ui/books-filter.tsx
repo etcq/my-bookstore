@@ -1,11 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { Separator } from '@/shared/ui/kit/separator';
-import { Card, CardContent } from '@/shared/ui/kit/card';
-import { Button } from '@/shared/ui/kit/button';
+import { Button, Card, CardContent, Separator, Slider } from '@/shared/ui/kit';
 import type { TBook } from '@/entities/book';
-import { Slider } from '@/shared/ui/kit/slider';
 import { Star } from 'lucide-react';
 import { useBookListInformation } from '@/features/books-filter/model/use-booklist-information';
 import { FILTER_PARAM_NAMES } from '@/features/books-filter/model/filter-params-names';

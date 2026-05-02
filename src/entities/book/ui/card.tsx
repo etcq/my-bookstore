@@ -1,4 +1,4 @@
-import { Button } from '@/shared/ui/kit/button';
+import { Button } from '@/shared/ui/kit';
 import type { TBookCard } from '../model/types';
 import { RatingStars } from '@/shared/ui/rating-stars';
 import { BookCover } from './book-cover';
@@ -22,9 +22,8 @@ export const BookCard = ({
           key={cover ?? 'no-cover'}
           coverUrl={cover}
           title={title}
-          containerClassName="max-h-2/4 w-full flex justify-center bg-gray-900"
-          imageClassName="w-auto h-full"
-          skeletonClassName="h-full w-full"
+          containerClassName="h-1/2 w-full flex justify-center bg-gray-900"
+          imageClassName="h-full w-auto"
         />
         <div className="flex flex-col flex-1 p-4 gap-2">
           <h3 className="text-base font-semibold line-clamp-2 min-h-12">

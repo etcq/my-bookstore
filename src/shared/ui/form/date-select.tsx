@@ -2,15 +2,15 @@ import { ChevronDownIcon } from 'lucide-react';
 import { useState } from 'react';
 import type { Control, FieldPath, FieldValues } from 'react-hook-form';
 import { Controller } from 'react-hook-form';
-import { Button } from '@/shared/ui/kit/button';
-import { Calendar } from '@/shared/ui/kit/calendar';
-import { Label } from '@/shared/ui/kit/label';
 import {
+  Button,
+  Calendar,
+  FieldError,
+  Label,
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from '@/shared/ui/kit/popover';
-import { FieldError } from '../kit/field';
+} from '@/shared/ui/kit';
 
 export interface IDateSelectProps<T extends FieldValues> {
   name: FieldPath<T>;

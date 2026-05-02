@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Button } from '@/shared/ui/kit/button';
+import { Button } from '@/shared/ui/kit';
 import { ROUTES } from '@/shared/routes';
 import { Meie_Script } from 'next/font/google';
 import { storeStats } from '../model/stats';

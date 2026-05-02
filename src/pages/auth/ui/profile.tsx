@@ -1,6 +1,6 @@
 'use client';
 import { useLayoutEffect, useState } from 'react';
-import { Button } from '@/shared/ui/kit/button';
+import { Button } from '@/shared/ui/kit';
 import { useForm } from 'react-hook-form';
 import type { TUserInformationForm } from '@/features/auth';
 import {

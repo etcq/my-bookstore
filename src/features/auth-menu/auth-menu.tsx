@@ -3,8 +3,8 @@ import {
   DropdownMenuContent,
   DropdownMenuLabel,
   DropdownMenuSeparator,
-} from '@/shared/ui/kit/dropdown-menu';
-import { Button } from '@/shared/ui/kit/button';
+  Button,
+} from '@/shared/ui/kit';
 import { User } from 'lucide-react';
 import { UserMenuTrigger } from '@/shared/ui/user-menu-trigger';
 import Link from 'next/link';

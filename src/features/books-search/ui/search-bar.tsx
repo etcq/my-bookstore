@@ -1,8 +1,7 @@
 'use client';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-import { Input } from '@/shared/ui/kit/input';
 import { type KeyboardEvent, useState } from 'react';
-import { Button } from '@/shared/ui/kit/button';
+import { Button, Input } from '@/shared/ui/kit';
 import { Search } from 'lucide-react';
 import { cn } from '@/shared/lib/tailwind-merge';
 

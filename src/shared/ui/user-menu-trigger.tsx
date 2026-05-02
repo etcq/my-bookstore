@@ -1,6 +1,5 @@
 import React from 'react';
-import { DropdownMenuTrigger } from '@/shared/ui/kit/dropdown-menu';
-import { Button } from '@/shared/ui/kit/button';
+import { Button, DropdownMenuTrigger } from '@/shared/ui/kit';
 import type { ReactNode } from 'react';
 
 export interface IUserMenuTriggerProps {

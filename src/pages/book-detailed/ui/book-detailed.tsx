@@ -1,7 +1,7 @@
 import { getBook } from '@/entities/book';
 import { BookCover } from '@/entities/book';
 import { notFound } from 'next/navigation';
-import { Button } from '@/shared/ui/kit/button';
+import { Button } from '@/shared/ui/kit';
 import { RatingStars } from '@/shared/ui/rating-stars';
 import { BookDetailedParameter } from './book-detailed-parameter';
 

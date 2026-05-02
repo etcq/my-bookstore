@@ -3,7 +3,7 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { FormControlledInput } from '@/shared/ui';
-import { Button } from '@/shared/ui/kit/button';
+import { Button } from '@/shared/ui/kit';
 import { loginFields, loginSchema, type TLoginForm } from '@/features/auth';
 import Link from 'next/link';
 import { signIn } from '@/features/auth';

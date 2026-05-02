@@ -1,6 +1,6 @@
 import { ROUTES } from '@/shared/routes';
 import { CheckCircle } from 'lucide-react';
-import { Button } from '@/shared/ui/kit/button';
+import { Button } from '@/shared/ui/kit';
 import Link from 'next/link';
 
 export const SuccessRegistrationPage = () => {

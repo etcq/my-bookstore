@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import { type CarouselApi } from '@/shared/ui/kit/carousel';
+import { type CarouselApi } from '@/shared/ui/kit';
 
 interface ICarouselDotsProps {
   api: CarouselApi;

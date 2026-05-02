@@ -9,7 +9,7 @@ import {
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
-} from '@/shared/ui/kit/dropdown-menu';
+} from '@/shared/ui/kit';
 import { UserMenuTrigger } from '@/shared/ui/user-menu-trigger';
 
 export const ThemeSwitcher = () => {

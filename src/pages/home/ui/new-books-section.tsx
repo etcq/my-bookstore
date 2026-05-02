@@ -4,7 +4,7 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from '@/shared/ui/kit/carousel';
+} from '@/shared/ui/kit';
 import { BookCard } from '@/entities/book';
 import { getBooksCatalog } from '@/pages/catalog/api/get-books';
 

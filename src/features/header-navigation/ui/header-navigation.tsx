@@ -2,7 +2,7 @@ import {
   NavigationMenu,
   NavigationMenuItem,
   NavigationMenuList,
-} from '@/shared/ui/kit/navigation-menu';
+} from '@/shared/ui/kit';
 import { menuItems } from '../model/menu-items-data';
 import Link from 'next/link';
 

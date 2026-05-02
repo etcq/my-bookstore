@@ -1,4 +1,4 @@
-import { Skeleton } from '@/shared/ui/kit/skeleton';
+import { Skeleton } from '@/shared/ui/kit';
 
 export const CardSkeleton = () => {
   return (

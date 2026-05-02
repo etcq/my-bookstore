@@ -1,7 +1,7 @@
 import { Header } from '@/widgets/header';
-import { TooltipProvider } from '@/shared/ui/kit/tooltip';
-import { SessionProvider } from '@/app/session-provider';
-import { getSessionUser } from '@/entities/user/api/get-session-user';
+import { TooltipProvider } from '@/shared/ui/kit';
+import { SessionProvider } from '@/app';
+import { getSessionUser } from '@/entities/user';
 
 export default async function SessionLayout({
   children,
