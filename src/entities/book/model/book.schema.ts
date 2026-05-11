@@ -29,6 +29,7 @@ export const bookSchema = z.object({
     .positive({ message: bookValidationMessages.POSITIVE_INPUT })
     .optional(),
   cover: z.string().optional(),
+  inStock: z.boolean().optional(),
 });
 
 export type TBookForm = z.infer<typeof bookSchema>;

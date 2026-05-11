@@ -22,6 +22,7 @@ export type Database = {
           created_at: string;
           description: string | null;
           id: string;
+          in_stock: boolean | null;
           pages: number | null;
           price: number | null;
           rating: number | null;
@@ -34,6 +35,7 @@ export type Database = {
           created_at?: string;
           description?: string | null;
           id?: string;
+          in_stock?: boolean | null;
           pages?: number | null;
           price?: number | null;
           rating?: number | null;
@@ -46,6 +48,7 @@ export type Database = {
           created_at?: string;
           description?: string | null;
           id?: string;
+          in_stock?: boolean | null;
           pages?: number | null;
           price?: number | null;
           rating?: number | null;

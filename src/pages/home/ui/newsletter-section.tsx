@@ -1,5 +1,5 @@
 'use client';
-import { Button } from '@/shared/ui/kit/button';
+import { Button } from '@/shared/ui/kit';
 import React, { useState } from 'react';
 
 export const NewsletterSection = () => {

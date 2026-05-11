@@ -23,7 +23,8 @@ const filterMap = {
     query.gte('rating', isNumericParamValue(value)),
   [FILTER_PARAM_NAMES.ratingTo]: (query: TBookQuery, value: string) =>
     query.lte('rating', isNumericParamValue(value)),
-  [FILTER_PARAM_NAMES.stockOnly]: (query: TBookQuery) => query, // in_stock column not in schema yet
+  [FILTER_PARAM_NAMES.stockOnly]: (query: TBookQuery) =>
+    query.eq('in_stock', true),
 } satisfies Record<
   TFilterOptions,
   (query: TBookQuery, value: string) => TBookQuery

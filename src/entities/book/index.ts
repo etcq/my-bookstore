@@ -1,4 +1,5 @@
 export { BookCard } from './ui/card';
+export { BookCover } from './ui/book-cover';
 export { CardSkeleton } from './ui/card-skeleton';
 export type { TBook } from './model/types';
 export { booksQuery } from './api/get-all-books';
@@ -7,3 +8,4 @@ export { bookSchema } from './model/book.schema';
 export type { TBookForm } from './model/book.schema';
 export { bookParameters } from './model/book-parameters';
 export { bookCategories } from './model/book-categories';
+export { getBook } from './api/get-book';

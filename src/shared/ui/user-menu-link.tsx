@@ -1,6 +1,6 @@
 import React, { type ReactNode } from 'react';
 import Link from 'next/link';
-import { Button } from '@/shared/ui/kit/button';
+import { Button } from '@/shared/ui/kit';
 
 export interface IUserMenuLinkProps {
   hint: string;

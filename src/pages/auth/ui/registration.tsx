@@ -4,7 +4,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { DateSelect, FormControlledInput } from '@/shared/ui';
 import { GenderSelect } from '@/features/auth';
-import { Button } from '@/shared/ui/kit/button';
+import { Button } from '@/shared/ui/kit';
 import { mainInformationFields, passwordFields } from '@/features/auth';
 import { registrationSchema, type TRegistrationForm } from '@/features/auth';
 import Link from 'next/link';

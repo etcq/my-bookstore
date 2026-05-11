@@ -1,11 +1,15 @@
 'use client';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-import { Input } from '@/shared/ui/kit/input';
 import { type KeyboardEvent, useState } from 'react';
-import { Button } from '@/shared/ui/kit/button';
+import { Button, Input } from '@/shared/ui/kit';
 import { Search } from 'lucide-react';
+import { cn } from '@/shared/lib/tailwind-merge';
 
-export const SearchBar = () => {
+interface ISearchBarProps {
+  className?: string;
+}
+
+export const SearchBar = ({ className }: ISearchBarProps) => {
   const params = useSearchParams();
   const searchedString = params?.get('search');
   const pathname = usePathname();
@@ -29,10 +33,10 @@ export const SearchBar = () => {
   };
 
   return (
-    <div className="relative w-2/3">
+    <div className={cn('relative w-full', className)}>
       <Input
         type="text"
-        className="w-full my-4 md:text-xl"
+        className="w-full pr-10 md:text-xl"
         value={value}
         placeholder="Search books or authors..."
         onChange={(e) => {
@@ -41,8 +45,10 @@ export const SearchBar = () => {
         onKeyDown={handleKeyDown}
       />
       <Button
+        type="button"
         size="icon"
-        className="absolute right-0 top-4"
+        aria-label="Search"
+        className="absolute right-0 top-1/2 -translate-y-1/2"
         onClick={updateSearch}
       >
         <Search />

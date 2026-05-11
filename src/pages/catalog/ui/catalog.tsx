@@ -29,16 +29,25 @@ export async function CatalogPage({ searchParams }: ICatalogPageProps) {
     page,
   );
   return (
-    <div className="flex h-full w-full flex-col items-center">
-      <div className="w-full flex flex-row items-center justify-evenly px-4 py-2">
-        <SearchBar key={searchedString} />
-        <BookSort />
+    <div className="flex h-full w-full flex-col items-center px-2">
+      <div className="flex w-full flex-col items-stretch gap-3 px-4 py-2 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
+        <SearchBar
+          key={searchedString}
+          className="w-full min-w-0 sm:max-w-2xl sm:flex-1"
+        />
+        <BookSort className="w-full min-w-0 sm:w-56 sm:shrink-0" />
       </div>
-      <div className="w-full flex md:flex-row md:items-start justify-center gap-4 px-4 py-2 md:px-10 md:py-6 flex-col items-center">
+      <div className="flex w-full flex-col items-stretch justify-center gap-4 px-4 py-2 md:flex-row md:items-start">
         <BooksFilter books={catalogData.data} />
-        <BookList className="max-w-310 min-w-2/3" books={catalogData.data} />
+        <BookList
+          className="w-full min-w-0 flex-1 justify-center"
+          books={catalogData.data}
+        />
       </div>
-      <PaginationBar count={catalogData.count} className={'py-6'} />
+      <PaginationBar
+        count={catalogData.count}
+        className="w-full justify-center px-4 py-4 md:py-6"
+      />
     </div>
   );
 }

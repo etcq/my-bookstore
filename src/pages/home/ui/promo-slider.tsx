@@ -5,7 +5,7 @@ import {
   type CarouselApi,
   CarouselContent,
   CarouselItem,
-} from '@/shared/ui/kit/carousel';
+} from '@/shared/ui/kit';
 import Autoplay from 'embla-carousel-autoplay';
 import { CarouselDots } from '@/shared/ui/carousel-dots';
 

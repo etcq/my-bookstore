@@ -2,8 +2,7 @@ import { type ChangeEvent } from 'react';
 import type { ControllerRenderProps, FieldValues } from 'react-hook-form';
 import { Controller } from 'react-hook-form';
 import type { IControlledFieldProps } from '@/shared/ui/form/types';
-import { Field, FieldError, FieldLabel } from '@/shared/ui/kit/field';
-import { Input } from '@/shared/ui/kit/input';
+import { Field, FieldError, FieldLabel, Input } from '@/shared/ui/kit';
 
 export type TCoverImageSelect<T extends FieldValues> =
   IControlledFieldProps<T> & {
