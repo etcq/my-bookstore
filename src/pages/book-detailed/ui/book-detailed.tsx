@@ -1,5 +1,4 @@
-import { getBook } from '@/entities/book';
-import { BookCover } from '@/entities/book';
+import { BookCover, getBook } from '@/entities/book';
 import { notFound } from 'next/navigation';
 import { Button } from '@/shared/ui/kit';
 import { RatingStars } from '@/shared/ui/rating-stars';
@@ -47,7 +46,9 @@ export const BookDetailedPage = async ({
               </span>
             </div>
             <span className="text-muted-foreground">4 reviews</span>
-            <span className="text-muted-foreground">In stock</span>
+            <span className="text-muted-foreground">
+              {book.in_stock ? 'In stock' : 'Not in stock'}
+            </span>
           </div>
 
           <p className="whitespace-pre-line text-muted-foreground">
